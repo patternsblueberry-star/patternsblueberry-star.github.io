@@ -1,230 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Blueberry Patterns — Cloud Aesthetic Digital Patterns</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>Cloud + Liver Website</title>
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cloud-main: #AFC7DD;
+      --cloud-accent: #A7C4DE;
+      --liver-deep: #6C2E33;
+      --liver-soft: #8A4A49;
+      --bg-main: #F5F7FA;
+      --bg-cloud: #E7EEF5;
+      --text-main: #2A2A2A;
+      --white: #ffffff;
+    }
 
-<style>
-/* BRAND COLORS */
-:root {
-  --cloud-main: #AFC7DD;
-  --cloud-accent: #A7C4DE;
-  --mist-blue: #F6FAFD;
-  --airy-blue: #E4EEF7;
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg-main);
+      color: var(--text-main);
+    }
 
-  --cream: #F8F3EA;
-  --white: #FFFFFF;
+    .section {
+      padding: 120px 6vw;
+    }
 
-  --liver-deep: #6C2E33;
-  --liver-soft: #8A4A49;
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      gap: 48px;
+    }
 
-  --text-main: #2A2A2A;
-  --text-soft: #6E6E6E;
-}
+    .hero-title {
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-size: 64px;
+      color: var(--liver-deep);
+      margin: 0 0 20px 0;
+      line-height: 1.05;
+    }
 
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    .hero p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 0 0 24px 0;
+    }
 
-body {
-  font-family: "Inter", sans-serif;
-  background: var(--mist-blue);
-  color: var(--text-main);
-  -webkit-font-smoothing: antialiased;
-}
+    .btn {
+      padding: 12px 30px;
+      border-radius: 999px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      font-family: inherit;
+    }
 
-img { width: 100%; display: block; }
+    .btn-primary {
+      background: var(--cloud-main);
+      color: var(--liver-deep);
+    }
 
-/* NAVIGATION (super minimal like mathildeknits.com) */
-nav {
-  width: 100%;
-  padding: 24px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: transparent;
-}
+    .btn-primary:hover {
+      background: var(--cloud-accent);
+    }
 
-nav .logo {
-  font-family: "Playfair Display", serif;
-  font-size: 22px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--liver-deep);
-}
+    .hero-image {
+      width: 350px;
+      height: 260px;
+      background: #AFC7DD;
+      border-radius: 30px;
+    }
 
-nav .nav-links a {
-  margin-left: 28px;
-  font-size: 14px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--text-soft);
-}
+    .section-cloud {
+      background: var(--bg-cloud);
+    }
 
-nav .nav-links a:hover {
-  color: var(--liver-soft);
-}
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: center;
+    }
 
-/* HERO SECTION (big image like mathildeknits) */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 90vh;
-  background: url('https://images.unsplash.com/photo-1513863323965-580b8f58b7cf?auto=format&fit=crop&w=1400&q=80')
-    center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    .section-title {
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-size: 40px;
+      color: var(--liver-deep);
+      margin-bottom: 20px;
+    }
 
-.hero-title {
-  font-family: "Playfair Display", serif;
-  font-size: 52px;
-  letter-spacing: -0.02em;
-  color: var(--white);
-  background: rgba(0,0,0,0.3);
-  padding: 16px 28px;
-  border-radius: 12px;
-}
+    .section-cloud p,
+    .section p {
+      font-size: 16px;
+      line-height: 1.7;
+      margin: 0 0 16px 0;
+    }
 
-/* COLLECTION GRID (mathildeknits signature layout) */
-.section {
-  padding: 100px 40px;
-  max-width: 1300px;
-  margin: auto;
-}
+    .card-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      max-width: 1100px;
+      margin: 30px auto 0;
+    }
 
-.collection-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 40px;
-}
+    .card {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 24px;
+      border: 1px solid #e4e4e4;
+    }
 
-.collection-block {
-  position: relative;
-  height: 540px;
-  border-radius: 22px;
-  overflow: hidden;
-  cursor: pointer;
-  box-shadow: 0 18px 45px rgba(0,0,0,0.06);
-}
+    .card-title {
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-size: 24px;
+      color: var(--liver-deep);
+      margin-bottom: 10px;
+    }
 
-.collection-block .overlay {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  font-family: "Playfair Display", serif;
-  font-size: 28px;
-  color: var(--white);
-}
+    .section-cta {
+      background: var(--cloud-main);
+      color: var(--liver-deep);
+      text-align: center;
+    }
 
-/* ABOUT SECTION */
-.about {
-  text-align: center;
-  padding: 120px 18vw;
-}
+    .section-cta p {
+      margin: 12px 0 0 0;
+      font-size: 16px;
+    }
 
-.about h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 40px;
-  margin-bottom: 20px;
-  color: var(--liver-deep);
-}
+    footer {
+      background: var(--liver-deep);
+      color: white;
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+    }
 
-.about p {
-  font-size: 17px;
-  color: var(--text-soft);
-  line-height: 1.8;
-}
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-/* FOOTER */
-footer {
-  padding: 60px 40px;
-  background: var(--white);
-  text-align: center;
-  border-top: 1px solid rgba(0,0,0,0.08);
-}
+      .hero-title {
+        font-size: 42px;
+      }
 
-footer .footer-brand {
-  font-family: "Playfair Display", serif;
-  font-size: 20px;
-  margin-bottom: 14px;
-  color: var(--liver-deep);
-}
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
 
-footer p {
-  font-size: 14px;
-  color: var(--text-soft);
-}
-</style>
+      .card-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="logo">Blueberry Patterns</div>
-  <div class="nav-links">
-    <a href="#shop">Shop</a>
-    <a href="#subscription">Subscription</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-title">Soft Patterns for Soft Living</div>
-</section>
-
-<!-- COLLECTION GRID -->
-<section class="section" id="shop">
-  <div class="collection-grid">
-
-    <div class="collection-block" style="background:url('https://images.unsplash.com/photo-1605902711622-cfb43c44367e?auto=format&fit=crop&w=1200&q=80') center/cover;">
-      <div class="overlay">Cloud Lounge Set</div>
+  <!-- HERO -->
+  <section class="section">
+    <div class="hero">
+      <div>
+        <h1 class="hero-title">Calm. Clean. Cloud.</h1>
+        <p>Cloud smoothie blue mixed with rich liver tones for a soft, curated life.</p>
+        <button class="btn btn-primary">Shop the Collection</button>
+      </div>
+      <div class="hero-image">
+        <!-- 这里以后可以换成你的图片背景 / 产品图 -->
+      </div>
     </div>
+  </section>
 
-    <div class="collection-block" style="background:url('https://images.unsplash.com/photo-1515630772431-3f80d394fa6e?auto=format&fit=crop&w=1200&q=80') center/cover;">
-      <div class="overlay">Blueberry Wrap Top</div>
+  <!-- BRAND STORY -->
+  <section class="section section-cloud">
+    <div class="grid-2">
+      <div style="background:#AFC7DD;height:300px;border-radius:20px;">
+        <!-- 这里也可以放一张拼贴图 / mood board -->
+      </div>
+      <div>
+        <h2 class="section-title">Designed for the taste of peace.</h2>
+        <p>A mix of cloud blue and liver tones, built for slow mornings, clean lines, and soft light.</p>
+        <p>Perfect for lifestyle, fashion, and curated home objects that feel calm but intentional.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="collection-block" style="background:url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80') center/cover;">
-      <div class="overlay">Cloud Midi Skirt</div>
+  <!-- PRODUCTS -->
+  <section class="section">
+    <h2 class="section-title" style="text-align:center;">Featured Pieces</h2>
+
+    <div class="card-row">
+      <div class="card">
+        <h3 class="card-title">Cloud Mug</h3>
+        <p>Soft glazed blue with a liver rim, built for slow coffee mornings.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Striped Throw</h3>
+        <p>Cloud blue and liver red stripe, inspired by grocery aisles and cloud drinks.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Cloud Candle</h3>
+        <p>Warm, clean burn in a powder blue vessel, with a grounded base note.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="collection-block" style="background:url('https://images.unsplash.com/photo-1530018607912-eff2daa1bac7?auto=format&fit=crop&w=1200&q=80') center/cover;">
-      <div class="overlay">Sunday Lounge Set</div>
-    </div>
+  <!-- CTA -->
+  <section class="section section-cta">
+    <h2 class="section-title">Join the Cloud Club</h2>
+    <p>Early access, limited drops, and styling ideas for cloud & liver living.</p>
+  </section>
 
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <h2>Sewing as a Calm, Everyday Ritual</h2>
-  <p>
-    Blueberry Patterns is a digital sewing pattern studio inspired by cloud drinks,
-    quiet mornings, wooden tables, and soft lifestyle aesthetics.  
-    <br><br>
-    Each pattern is delivered digitally by email, with optional $2 custom adjustments 
-    for the perfect fit.
-  </p>
-</section>
-
-<!-- FOOTER -->
-<footer id="contact">
-  <div class="footer-brand">Blueberry Patterns</div>
-  <p>Digital sewing patterns · Cloud Aesthetic · Soft Lifestyle Studio</p>
-</footer>
+  <footer>
+    © 2025 Your Brand Name
+  </footer>
 
 </body>
 </html>
