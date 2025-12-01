@@ -1,1264 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Blueberry Patterns · Digital Sewing Patterns</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Blueberry Patterns — clean, airy digital sewing patterns with optional custom adjustments and a monthly subscription for home sewists." />
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      /* Brand colors */
-      --cloud-main:   #AFC7DD;  /* 主 Cloud 蓝 */
-      --cloud-accent: #A7C4DE;  /* 深一点的 Cloud 蓝 */
-      --airy-blue:    #E4EEF7;  /* 淡蓝背景 */
-      --mist-blue:    #F6FAFD;  /* 超淡蓝背景 */
-
-      --cream:        #F8F3EA;  /* 温柔米色 */
-      --soft-white:   #FCFAF7;  /* 柔白 */
-      --white:        #FFFFFF;
-
-      --liver-deep:   #6C2E33;  /* 深肝色：标题、重点 */
-      --liver-soft:   #8A4A49;  /* 软肝色：次要强调 */
-      --liver-rose:   #C8A7A4;  /* 玫瑰肝：浅背景 */
-
-      --text-main:    #2A2A2A;
-      --text-soft:    #6E6E6E;
-
-      /* Layout tokens */
-      --max-width: 1120px;
-      --section-padding-y: 96px;
-      --radius-card: 24px;
-      --radius-large: 32px;
-      --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.04);
-      --transition-fast: 0.22s ease-out;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--soft-white);
-      color: var(--text-main);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      background: radial-gradient(circle at top left, var(--mist-blue), var(--soft-white) 48%, #ffffff 100%);
-      min-height: 100vh;
-    }
-
-    .section {
-      padding: var(--section-padding-y) 6vw;
-    }
-
-    .inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 4px 12px;
-      border-radius: 999px;
-      background: rgba(175, 199, 221, 0.25);
-      color: var(--liver-soft);
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--liver-soft);
-    }
-
-    h1, h2, h3, h4 {
-      margin: 0;
-      font-family: "Playfair Display", "Times New Roman", serif;
-      color: var(--liver-deep);
-    }
-
-    p {
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.7;
-      color: var(--text-soft);
-    }
-
-    .section-title {
-      font-size: 36px;
-      margin-bottom: 12px;
-    }
-
-    .section-intro {
-      max-width: 560px;
-      font-size: 15px;
-    }
-
-    /* Buttons */
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .btn {
-      border-radius: 999px;
-      padding: 11px 24px;
-      border: none;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-    }
-
-    .btn-primary {
-      background: var(--cloud-main);
-      color: var(--liver-deep);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .btn-primary:hover {
-      background: var(--cloud-accent);
-      transform: translateY(-1px);
-      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.06);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--liver-soft);
-      border: 1px solid rgba(108, 46, 51, 0.15);
-    }
-
-    .btn-ghost:hover {
-      border-color: rgba(108, 46, 51, 0.35);
-      background: rgba(248, 243, 234, 0.6);
-    }
-
-    .btn-light {
-      background: var(--white);
-      color: var(--liver-deep);
-      border: 1px solid rgba(108, 46, 51, 0.08);
-    }
-
-    .btn-light:hover {
-      background: var(--soft-white);
-    }
-
-    /* NAV */
-    .nav {
-      padding: 18px 6vw 8px;
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(to bottom, rgba(246, 250, 253, 0.9), rgba(246, 250, 253, 0.85), rgba(246, 250, 253, 0.0));
-    }
-
-    .nav-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-mark {
-      width: 24px;
-      height: 24px;
-      border-radius: 8px;
-      background: radial-gradient(circle at 30% 20%, #ffffff, var(--cloud-main) 40%, var(--liver-rose) 100%);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-    }
-
-    .logo-text-main {
-      font-family: "Playfair Display", serif;
-      font-size: 20px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--liver-deep);
-    }
-
-    .logo-sub {
-      font-size: 11px;
-      color: var(--text-soft);
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-soft);
-    }
-
-    .nav-links a {
-      position: relative;
-      padding-bottom: 2px;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 1px;
-      background: var(--liver-soft);
-      transition: width var(--transition-fast);
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    /* HERO */
-    .hero {
-      padding-top: 32px;
-      padding-bottom: 72px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-      gap: 52px;
-      align-items: center;
-    }
-
-    .hero-title {
-      font-size: 52px;
-      line-height: 1.05;
-      margin: 18px 0 16px;
-    }
-
-    .hero-kicker {
-      font-size: 17px;
-      color: var(--text-main);
-      max-width: 440px;
-      margin-bottom: 24px;
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      margin-top: 26px;
-      font-size: 12px;
-      color: var(--text-soft);
-    }
-
-    .hero-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .hero-meta .pill {
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(200, 167, 164, 0.18);
-      color: var(--liver-soft);
-    }
-
-    .hero-visual {
-      position: relative;
-      min-height: 280px;
-    }
-
-    .hero-card-main {
-      position: relative;
-      background: var(--white);
-      border-radius: var(--radius-large);
-      padding: 22px 22px 18px;
-      box-shadow: var(--shadow-soft);
-      max-width: 360px;
-      margin-left: auto;
-      border: 1px solid rgba(175, 199, 221, 0.6);
-    }
-
-    .hero-card-tag {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-soft);
-      margin-bottom: 4px;
-    }
-
-    .hero-card-title {
-      font-family: "Playfair Display", serif;
-      font-size: 20px;
-      margin-bottom: 6px;
-      color: var(--liver-deep);
-    }
-
-    .hero-card-meta {
-      font-size: 13px;
-      color: var(--text-soft);
-      display: flex;
-      justify-content: space-between;
-      margin-top: 8px;
-    }
-
-    .hero-card-colorband {
-      margin-top: 14px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 6px;
-    }
-
-    .color-chip {
-      border-radius: 999px;
-      height: 8px;
-    }
-
-    .chip-cloud-main { background: var(--cloud-main); }
-    .chip-cloud-accent { background: var(--cloud-accent); }
-    .chip-liver-deep { background: var(--liver-deep); }
-    .chip-cream { background: var(--cream); }
-
-    .hero-floating-note {
-      position: absolute;
-      left: 0;
-      bottom: -20px;
-      background: rgba(252, 250, 247, 0.98);
-      border-radius: 18px;
-      padding: 10px 14px;
-      font-size: 11px;
-      color: var(--text-soft);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-      border: 1px solid rgba(200, 167, 164, 0.35);
-      max-width: 210px;
-    }
-
-    .hero-floating-note strong {
-      color: var(--liver-deep);
-    }
-
-    /* WHAT WE OFFER */
-    .offer-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-      margin-top: 32px;
-    }
-
-    .card {
-      background: var(--white);
-      border-radius: var(--radius-card);
-      padding: 22px 22px 20px;
-      border: 1px solid rgba(175, 199, 221, 0.5);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 46px rgba(0, 0, 0, 0.04);
-      border-color: rgba(108, 46, 51, 0.22);
-      background: #ffffff;
-    }
-
-    .card-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--text-soft);
-    }
-
-    .card-title {
-      font-family: "Playfair Display", serif;
-      font-size: 20px;
-      color: var(--liver-deep);
-    }
-
-    .card-meta {
-      font-size: 13px;
-      color: var(--text-soft);
-    }
-
-    .card-pill {
-      margin-top: auto;
-      font-size: 12px;
-      color: var(--liver-soft);
-    }
-
-    /* SUBSCRIPTION SECTION */
-    .sub-section {
-      background: linear-gradient(135deg, var(--airy-blue), var(--soft-white));
-      border-top: 1px solid rgba(175, 199, 221, 0.5);
-      border-bottom: 1px solid rgba(200, 167, 164, 0.3);
-    }
-
-    .sub-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 40px;
-      align-items: center;
-    }
-
-    .price-tag {
-      font-family: "Playfair Display", serif;
-      font-size: 30px;
-      color: var(--liver-deep);
-    }
-
-    .price-tag span {
-      font-family: "Inter", sans-serif;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-soft);
-      margin-left: 10px;
-    }
-
-    .sub-points {
-      margin-top: 14px;
-      display: grid;
-      gap: 6px;
-      font-size: 14px;
-      color: var(--text-soft);
-    }
-
-    .sub-pill-row {
-      margin-top: 14px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 11px;
-    }
-
-    .pill-soft {
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(248, 243, 234, 0.9);
-      color: var(--liver-soft);
-      border: 1px solid rgba(200, 167, 164, 0.4);
-    }
-
-    .sub-preview {
-      border-radius: var(--radius-large);
-      background: var(--white);
-      padding: 18px 18px 14px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(175, 199, 221, 0.7);
-    }
-
-    .sub-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      font-size: 13px;
-      margin-bottom: 8px;
-    }
-
-    .sub-tag {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-soft);
-    }
-
-    .sub-mini-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .mini-card {
-      border-radius: 14px;
-      padding: 10px 10px 9px;
-      background: var(--soft-white);
-      border: 1px solid rgba(175, 199, 221, 0.6);
-      font-size: 12px;
-      color: var(--text-soft);
-    }
-
-    .mini-card strong {
-      display: block;
-      font-size: 12px;
-      color: var(--liver-deep);
-      margin-bottom: 3px;
-    }
-
-    /* LOOKBOOK */
-    .lookbook-section {
-      background: var(--soft-white);
-    }
-
-    .lookbook-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 26px;
-      margin-top: 30px;
-    }
-
-    .lookbook-main {
-      border-radius: var(--radius-large);
-      background: linear-gradient(145deg, var(--cloud-main), var(--liver-rose));
-      min-height: 260px;
-      padding: 18px;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .lookblock {
-      border-radius: 18px;
-      background: rgba(252, 250, 247, 0.86);
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      font-size: 12px;
-    }
-
-    .lookblock span {
-      color: var(--text-soft);
-    }
-
-    .lookblock strong {
-      color: var(--liver-deep);
-    }
-
-    .lookbook-side {
-      display: grid;
-      gap: 12px;
-      font-size: 13px;
-      color: var(--text-soft);
-    }
-
-    /* PATTERNS GRID */
-    .patterns-grid {
-      margin-top: 28px;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .pattern-card {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 18px 18px 16px;
-      border: 1px solid rgba(175, 199, 221, 0.6);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-    }
-
-    .pattern-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.04);
-      border-color: rgba(108, 46, 51, 0.18);
-    }
-
-    .pattern-tag {
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-soft);
-    }
-
-    .pattern-title {
-      font-family: "Playfair Display", serif;
-      font-size: 18px;
-      color: var(--liver-deep);
-    }
-
-    .pattern-meta {
-      font-size: 13px;
-      color: var(--text-soft);
-    }
-
-    .pattern-foot {
-      margin-top: 8px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 13px;
-      color: var(--text-soft);
-    }
-
-    .pattern-foot strong {
-      color: var(--liver-deep);
-    }
-
-    /* ABOUT PREVIEW */
-    .about-preview {
-      margin-top: 32px;
-      border-radius: var(--radius-card);
-      background: var(--cream);
-      padding: 22px 22px 20px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 18px;
-      border: 1px solid rgba(200, 167, 164, 0.4);
-    }
-
-    .about-kicker {
-      font-size: 12px;
-      letter-spacing: 0.19em;
-      text-transform: uppercase;
-      color: var(--liver-soft);
-      margin-bottom: 6px;
-    }
-
-    /* NEWSLETTER */
-    .newsletter-section {
-      background: var(--mist-blue);
-      border-top: 1px solid rgba(175, 199, 221, 0.6);
-    }
-
-    .newsletter-card {
-      max-width: 640px;
-      margin: 0 auto;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.86);
-      border-radius: var(--radius-large);
-      padding: 26px 24px 24px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(175, 199, 221, 0.7);
-    }
-
-    .newsletter-title {
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
-
-    .newsletter-text {
-      font-size: 14px;
-      color: var(--text-soft);
-      margin-bottom: 18px;
-    }
-
-    .newsletter-form {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      margin-top: 6px;
-    }
-
-    .newsletter-input {
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(175, 199, 221, 0.8);
-      min-width: 220px;
-      font-size: 13px;
-      outline: none;
-      background: #ffffff;
-    }
-
-    .newsletter-input:focus {
-      border-color: rgba(108, 46, 51, 0.35);
-    }
-
-    /* FOOTER */
-    .footer {
-      background: var(--liver-deep);
-      color: var(--soft-white);
-      padding: 26px 6vw 20px;
-    }
-
-    .footer-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr));
-      gap: 22px;
-      font-size: 13px;
-    }
-
-    .footer h4 {
-      font-family: "Inter", sans-serif;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      margin-bottom: 10px;
-      color: rgba(252, 250, 247, 0.86);
-    }
-
-    .footer p {
-      color: rgba(252, 250, 247, 0.76);
-      font-size: 13px;
-    }
-
-    .footer a {
-      display: block;
-      color: rgba(252, 250, 247, 0.8);
-      margin-bottom: 6px;
-      font-size: 13px;
-    }
-
-    .footer a:hover {
-      color: #ffffff;
-    }
-
-    .footer-bottom {
-      max-width: var(--max-width);
-      margin: 16px auto 0;
-      padding-top: 8px;
-      border-top: 1px solid rgba(252, 250, 247, 0.16);
-      font-size: 11px;
-      color: rgba(252, 250, 247, 0.62);
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 960px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-      .hero-visual {
-        order: -1;
-      }
-      .hero-title {
-        font-size: 38px;
-      }
-      .section-title {
-        font-size: 30px;
-      }
-      .nav-links {
-        display: none;
-      }
-      .offer-grid {
-        grid-template-columns: 1fr;
-      }
-      .sub-grid {
-        grid-template-columns: 1fr;
-      }
-      .lookbook-grid {
-        grid-template-columns: 1fr;
-      }
-      .patterns-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .about-preview {
-        grid-template-columns: 1fr;
-      }
-      .footer-inner {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .section {
-        padding: 72px 6vw;
-      }
-      .patterns-grid {
-        grid-template-columns: 1fr;
-      }
-      .footer-inner {
-        grid-template-columns: 1fr;
-      }
-      .hero-title {
-        font-size: 32px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Blueberry Patterns — Cloud Aesthetic Digital Patterns</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* BRAND COLORS */
+:root {
+  --cloud-main: #AFC7DD;
+  --cloud-accent: #A7C4DE;
+  --mist-blue: #F6FAFD;
+  --airy-blue: #E4EEF7;
+
+  --cream: #F8F3EA;
+  --white: #FFFFFF;
+
+  --liver-deep: #6C2E33;
+  --liver-soft: #8A4A49;
+
+  --text-main: #2A2A2A;
+  --text-soft: #6E6E6E;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--mist-blue);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { width: 100%; display: block; }
+
+/* NAVIGATION (super minimal like mathildeknits.com) */
+nav {
+  width: 100%;
+  padding: 24px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+}
+
+nav .logo {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--liver-deep);
+}
+
+nav .nav-links a {
+  margin-left: 28px;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-soft);
+}
+
+nav .nav-links a:hover {
+  color: var(--liver-soft);
+}
+
+/* HERO SECTION (big image like mathildeknits) */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  background: url('https://images.unsplash.com/photo-1513863323965-580b8f58b7cf?auto=format&fit=crop&w=1400&q=80')
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-title {
+  font-family: "Playfair Display", serif;
+  font-size: 52px;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  background: rgba(0,0,0,0.3);
+  padding: 16px 28px;
+  border-radius: 12px;
+}
+
+/* COLLECTION GRID (mathildeknits signature layout) */
+.section {
+  padding: 100px 40px;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+}
+
+.collection-block {
+  position: relative;
+  height: 540px;
+  border-radius: 22px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.06);
+}
+
+.collection-block .overlay {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  color: var(--white);
+}
+
+/* ABOUT SECTION */
+.about {
+  text-align: center;
+  padding: 120px 18vw;
+}
+
+.about h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: var(--liver-deep);
+}
+
+.about p {
+  font-size: 17px;
+  color: var(--text-soft);
+  line-height: 1.8;
+}
+
+/* FOOTER */
+footer {
+  padding: 60px 40px;
+  background: var(--white);
+  text-align: center;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+footer .footer-brand {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  margin-bottom: 14px;
+  color: var(--liver-deep);
+}
+
+footer p {
+  font-size: 14px;
+  color: var(--text-soft);
+}
+</style>
 </head>
 
-<body class="page">
-  <!-- NAV -->
-  <header class="nav">
-    <div class="nav-inner">
-      <a href="#top" class="logo">
-        <div class="logo-mark"></div>
-        <div>
-          <div class="logo-text-main">Blueberry Patterns</div>
-          <div class="logo-sub">CLOUD · PATTERN · STUDIO</div>
-        </div>
-      </a>
-      <nav class="nav-links">
-        <a href="#shop">Shop</a>
-        <a href="#subscription">Subscription</a>
-        <a href="#lookbook">Lookbook</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+<body>
 
-  <!-- HERO -->
-  <main id="top">
-    <section class="section hero" id="home">
-      <div class="inner hero-grid">
-        <div>
-          <div class="badge">
-            <span class="dot"></span>
-            <span>Digital sewing pattern studio</span>
-          </div>
+<!-- NAV -->
+<nav>
+  <div class="logo">Blueberry Patterns</div>
+  <div class="nav-links">
+    <a href="#shop">Shop</a>
+    <a href="#subscription">Subscription</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
-          <h1 class="hero-title">Soft patterns<br>for soft living.</h1>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-title">Soft Patterns for Soft Living</div>
+</section>
 
-          <p class="hero-kicker">
-            Clean, airy digital sewing patterns, delivered by email.
-            Optional fit adjustments and a calm $7/month subscription
-            for home sewists who love cloud aesthetics.
-          </p>
+<!-- COLLECTION GRID -->
+<section class="section" id="shop">
+  <div class="collection-grid">
 
-          <div class="btn-row">
-            <!-- TODO: 这里以后可以改成实际 shop 链接 -->
-            <button class="btn btn-primary">Shop patterns</button>
-            <button class="btn btn-ghost">Explore monthly plan</button>
-          </div>
-
-          <div class="hero-meta">
-            <span class="pill">Digital only · Instant download</span>
-            <span>Fit adjustment · <strong>$2</strong> per edit</span>
-            <span>Subscription · <strong>$7</strong>/month · 2 new patterns</span>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <div class="hero-card-main">
-            <div class="hero-card-tag">Current drop</div>
-            <div class="hero-card-title">Cloud Lounge Set</div>
-            <p style="font-size:13px;color:var(--text-soft);">
-              A relaxed lounge set inspired by Erewhon cloud drinks,
-              draft-friendly with clean lines and soft volume.
-            </p>
-            <div class="hero-card-meta">
-              <span>Level: Confident beginner</span>
-              <span>Sizes: XS–XL</span>
-            </div>
-            <div class="hero-card-colorband">
-              <div class="color-chip chip-cloud-main"></div>
-              <div class="color-chip chip-cloud-accent"></div>
-              <div class="color-chip chip-liver-deep"></div>
-              <div class="color-chip chip-cream"></div>
-            </div>
-          </div>
-          <div class="hero-floating-note">
-            <strong>Blueberry Patterns · 布鲁莓制版</strong><br />
-            Digital files only — download, print, and sew at home.<br />
-            Optional body adjustment service: <strong>$2 / request</strong>.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHAT WE OFFER -->
-    <section class="section">
-      <div class="inner">
-        <h2 class="section-title">What you get with Blueberry Patterns</h2>
-        <p class="section-intro">
-          For sewists who love clean lines, soft silhouettes, and a calm home studio.
-          所有图纸均为电子版，通过邮件发送，支持额外付费身体调整服务。
-        </p>
-
-        <div class="offer-grid">
-          <article class="card">
-            <div class="card-label">Digital patterns</div>
-            <div class="card-title">Instant email delivery</div>
-            <p class="card-meta">
-              Purchase a pattern, receive the digital files directly in your inbox.
-              Print at home or at a copy shop, then cut and sew at your own pace.
-            </p>
-            <div class="card-pill">Format: PDF · A4 / US Letter friendly</div>
-          </article>
-
-          <article class="card">
-            <div class="card-label">Fit adjustment</div>
-            <div class="card-title">$2 per custom edit</div>
-            <p class="card-meta">
-              Need the pattern tuned to your specific body? Send your key
-              measurements and we adjust the digital files for just $2 per edit.
-            </p>
-            <div class="card-pill">Bust, waist, hip, length adjustments · by email</div>
-          </article>
-
-          <article class="card">
-            <div class="card-label">Monthly subscription</div>
-            <div class="card-title">2 new patterns · $7/month</div>
-            <p class="card-meta">
-              A gentle membership for your sewing life. Two fresh,
-              carefully designed patterns each month in the Blueberry studio style.
-            </p>
-            <div class="card-pill">Cancel anytime · perfect for regular sewists</div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- SUBSCRIPTION SECTION -->
-    <section class="section sub-section" id="subscription">
-      <div class="inner sub-grid">
-        <div>
-          <h2 class="section-title">A calm $7/month sewing subscription</h2>
-          <p class="section-intro">
-            Every month, Blueberry Patterns members receive two new digital patterns:
-            soft silhouettes, wearable pieces, and details inspired by cloud drinks,
-            quiet mornings, and clean studios.
-          </p>
-
-          <div class="price-tag">
-            $7
-            <span>Monthly · Digital only</span>
-          </div>
-
-          <div class="sub-points">
-            <div>• 2 new patterns delivered by email every month</div>
-            <div>• Access to a growing library of Blueberry silhouettes</div>
-            <div>• Special pricing on custom fit adjustments</div>
-          </div>
-
-          <div class="sub-pill-row">
-            <div class="pill-soft">Designed for home sewists</div>
-            <div class="pill-soft">Cloud aesthetic meets pattern drafting</div>
-            <div class="pill-soft">Pause or cancel anytime</div>
-          </div>
-
-          <div class="btn-row" style="margin-top:22px;">
-            <button class="btn btn-primary">Start subscription</button>
-            <button class="btn btn-ghost">See sample month</button>
-          </div>
-        </div>
-
-        <aside class="sub-preview">
-          <div class="sub-row">
-            <div>
-              <div class="sub-tag">Inside this month</div>
-              <div style="font-size:15px;color:var(--liver-deep);font-family:'Playfair Display',serif;">
-                Cloud Skirt · Blueberry Wrap Top
-              </div>
-            </div>
-            <div style="text-align:right;font-size:12px;color:var(--text-soft);">
-              Format:<br /><strong style="color:var(--liver-deep);">PDF · Email</strong>
-            </div>
-          </div>
-          <div class="sub-mini-grid">
-            <div class="mini-card">
-              <strong>Cloud Skirt</strong>
-              A soft, mid-length skirt with gentle volume and clean waist shaping.
-            </div>
-            <div class="mini-card">
-              <strong>Blueberry Wrap Top</strong>
-              A wrap top with subtle gathers and an adjustable tie for daily wear.
-            </div>
-          </div>
-          <p style="font-size:11px;margin-top:10px;color:var(--text-soft);">
-            订阅用户将通过邮件收到所有文件（英文版），如果你之后需要中文说明，
-            可以在服务说明中单独注明（未来可以加这个服务）。
-          </p>
-        </aside>
-      </div>
-    </section>
-
-    <!-- LOOKBOOK / LIFESTYLE -->
-    <section class="section lookbook-section" id="lookbook">
-      <div class="inner">
-        <h2 class="section-title">Soft studio, slow sewing</h2>
-        <p class="section-intro">
-          Blueberry Patterns is built around a quiet, cloud-like studio mood:
-          wood tables, blue ceramics, paper patterns, and warm light. 这里可以用你的
-          缝纫空间、生活方式照片，做成一个很有故事感的视觉区。
-        </p>
-
-        <div class="lookbook-grid">
-          <div class="lookbook-main">
-            <!-- TODO: 将这几个 block 换成你的真实图片 / 文案 -->
-            <div class="lookblock">
-              <div>
-                <strong>Morning cutting table</strong><br />
-                <span>Cloud blue fabrics, tracing paper, pattern weights, and coffee.</span>
-              </div>
-              <div style="font-size:11px;color:var(--text-soft);margin-top:6px;">
-                Shot in your home studio · 蓝白色调 + 木色桌面
-              </div>
-            </div>
-            <div class="lookblock">
-              <div>
-                <strong>Details & topstitch</strong><br />
-                <span>Close-ups of seams, hems, and darts from Blueberry patterns.</span>
-              </div>
-              <div style="font-size:11px;color:var(--text-soft);margin-top:6px;">
-                Perfect for Instagram / portfolio visuals.
-              </div>
-            </div>
-            <div class="lookblock">
-              <div>
-                <strong>On-body fit</strong><br />
-                <span>Finished garments on real bodies, quiet and relaxed.</span>
-              </div>
-              <div style="font-size:11px;margin-top:6px;">
-                可以放你或模特穿着成品的照片。
-              </div>
-            </div>
-            <div class="lookblock">
-              <div>
-                <strong>Tools & thread</strong><br />
-                <span>Scissors, threads, rulers, machines — the calm chaos of making.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="lookbook-side">
-            <p>
-              Think of this space as your visual journal:
-              a moodboard that shows visitors what sewing with Blueberry Patterns feels like.
-            </p>
-            <p>
-              You can replace these text-only blocks with actual photos later,
-              or keep a mix of images and captions. 保持 Cloud 蓝 + 米白 + 少量深肝色，
-              网站就会非常和谐、高级。
-            </p>
-            <button class="btn btn-light" style="align-self:flex-start;margin-top:4px;">
-              View more looks (future gallery)
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURED PATTERNS / SHOP -->
-    <section class="section" id="shop">
-      <div class="inner">
-        <h2 class="section-title">Featured digital patterns</h2>
-        <p class="section-intro">
-          A small selection of Blueberry silhouettes. Replace these with your real products
-          and link to your actual shop or email checkout workflow.
-        </p>
-
-        <div class="patterns-grid">
-          <!-- Pattern 1 -->
-          <article class="pattern-card">
-            <div class="pattern-tag">Top</div>
-            <div class="pattern-title">Blueberry Wrap Top</div>
-            <p class="pattern-meta">
-              Soft wrap top with gentle gathers and adjustable waist tie.
-            </p>
-            <div class="pattern-foot">
-              <span>PDF · Instant email delivery</span>
-              <strong>$8</strong>
-            </div>
-          </article>
-
-          <!-- Pattern 2 -->
-          <article class="pattern-card">
-            <div class="pattern-tag">Skirt</div>
-            <div class="pattern-title">Cloud Midi Skirt</div>
-            <p class="pattern-meta">
-              A-line skirt with quiet volume, designed for everyday wear.
-            </p>
-            <div class="pattern-foot">
-              <span>Beginner friendly</span>
-              <strong>$9</strong>
-            </div>
-          </article>
-
-          <!-- Pattern 3 -->
-          <article class="pattern-card">
-            <div class="pattern-tag">Set</div>
-            <div class="pattern-title">Sunday Lounge Set</div>
-            <p class="pattern-meta">
-              Relaxed top and pants set, inspired by slow weekends and clean interiors.
-            </p>
-            <div class="pattern-foot">
-              <span>Top + Pants · PDF</span>
-              <strong>$12</strong>
-            </div>
-          </article>
-
-          <!-- Pattern 4 -->
-          <article class="pattern-card">
-            <div class="pattern-tag">Dress</div>
-            <div class="pattern-title">Soft Square Dress</div>
-            <p class="pattern-meta">
-              Square neckline, soft skirt volume, and simple lines for everyday dressing.
-            </p>
-            <div class="pattern-foot">
-              <span>Sizes XS–XL</span>
-              <strong>$10</strong>
-            </div>
-          </article>
-
-          <!-- Pattern 5 -->
-          <article class="pattern-card">
-            <div class="pattern-tag">Outer</div>
-            <div class="pattern-title">Cloud Coat Shell</div>
-            <p class="pattern-meta">
-              Light layering piece with clean shoulders and cloud-inspired volume.
-            </p>
-            <div class="pattern-foot">
-              <span>Intermediate level</span>
-              <strong>$11</strong>
-            </div>
-          </article>
-
-          <!-- Pattern 6 -->
-          <article class="pattern-card">
-            <div class="pattern-tag">Accessory</div>
-            <div class="pattern-title">Studio Tote</div>
-            <p class="pattern-meta">
-              A calm tote bag sized for patterns, sketchbooks, and fabric swatches.
-            </p>
-            <div class="pattern-foot">
-              <span>Perfect for scraps</span>
-              <strong>$6</strong>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT PREVIEW -->
-    <section class="section" id="about">
-      <div class="inner">
-        <div class="about-preview">
-          <div>
-            <div class="about-kicker">Studio philosophy</div>
-            <h3 style="font-size:24px;margin-bottom:8px;">Sewing as a calm, everyday ritual</h3>
-            <p>
-              Blueberry Patterns is a small digital pattern studio built around quiet mornings,
-              long afternoons at the cutting table, and the feeling of wearing something you made
-              with your own hands.
-            </p>
-            <p style="margin-top:8px;">
-              It’s for sewists who love clean lines, cloud-like palettes, and a sense of gentle luxury —
-              without rushing, without overcomplication.
-            </p>
-            <button class="btn btn-ghost" style="margin-top:14px;">
-              Read full story (future About page)
-            </button>
-          </div>
-          <div>
-            <p style="font-size:14px;">
-              这里可以写你的中文介绍，比如：<br /><br />
-              “Blueberry Patterns 想给喜欢缝纫的人一个很干净、很温柔的空间。
-              你在家里、在自己的小工作室里，用非常日常的节奏做衣服，
-              不一定追求快、也不一定追求多，只是想把一件衣服慢慢做好。”<br /><br />
-              正式上线时，你可以把这段中文和英文整理成更完整的品牌故事。
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- NEWSLETTER / CONTACT -->
-    <section class="section newsletter-section" id="contact">
-      <div class="inner">
-        <div class="newsletter-card">
-          <h3 class="newsletter-title">Join the Blueberry studio list</h3>
-          <p class="newsletter-text">
-            Receive gentle updates when new patterns drop, subscription previews,
-            and studio notes about sewing, lifestyle, and cloud-blue mornings.
-          </p>
-
-          <div class="newsletter-form">
-            <!-- TODO: 这里可以接后端或邮件服务（如 Mailchimp），目前只是样式 -->
-            <input class="newsletter-input" type="email" placeholder="Your email address" />
-            <button class="btn btn-primary" type="button">Get studio updates</button>
-          </div>
-
-          <p style="margin-top:10px;font-size:11px;color:var(--text-soft);">
-            No spam — just patterns, process, and a little bit of Blueberry life.
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div>
-        <div class="logo" style="margin-bottom:10px;">
-          <div class="logo-mark"></div>
-          <div>
-            <div class="logo-text-main" style="color:#FCFAF7;">Blueberry Patterns</div>
-            <div class="logo-sub" style="color:rgba(252,250,247,0.7);">CLOUD · PATTERN · STUDIO</div>
-          </div>
-        </div>
-        <p>
-          Digital sewing patterns with a cloud-smoothie palette and a calm, considered pace.
-          Designed for people who like to sew slowly and live softly.
-        </p>
-      </div>
-
-      <div>
-        <h4>Explore</h4>
-        <a href="#shop">Shop patterns</a>
-        <a href="#subscription">Subscription</a>
-        <a href="#lookbook">Lookbook</a>
-      </div>
-
-      <div>
-        <h4>Studio</h4>
-        <a href="#about">About Blueberry Patterns</a>
-        <a href="#contact">Newsletter</a>
-        <!-- TODO: 可以替换成你的 Blog 或 Journal 链接 -->
-        <a href="#">Journal (soon)</a>
-      </div>
-
-      <div>
-        <h4>Connect</h4>
-        <!-- TODO: 把这些替换成你真实的社交链接 -->
-        <a href="#" target="_blank" rel="noreferrer">Instagram</a>
-        <a href="#" target="_blank" rel="noreferrer">TikTok</a>
-        <a href="#" target="_blank" rel="noreferrer">Email studio</a>
-      </div>
+    <div class="collection-block" style="background:url('https://images.unsplash.com/photo-1605902711622-cfb43c44367e?auto=format&fit=crop&w=1200&q=80') center/cover;">
+      <div class="overlay">Cloud Lounge Set</div>
     </div>
 
-    <div class="footer-bottom">
-      <span>© <span id="year"></span> Blueberry Patterns · All rights reserved.</span>
-      <span>Made for home sewists who love cloud blue & quiet mornings.</span>
+    <div class="collection-block" style="background:url('https://images.unsplash.com/photo-1515630772431-3f80d394fa6e?auto=format&fit=crop&w=1200&q=80') center/cover;">
+      <div class="overlay">Blueberry Wrap Top</div>
     </div>
-  </footer>
 
-  <script>
-    // 自动填当前年份
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    <div class="collection-block" style="background:url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80') center/cover;">
+      <div class="overlay">Cloud Midi Skirt</div>
+    </div>
+
+    <div class="collection-block" style="background:url('https://images.unsplash.com/photo-1530018607912-eff2daa1bac7?auto=format&fit=crop&w=1200&q=80') center/cover;">
+      <div class="overlay">Sunday Lounge Set</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <h2>Sewing as a Calm, Everyday Ritual</h2>
+  <p>
+    Blueberry Patterns is a digital sewing pattern studio inspired by cloud drinks,
+    quiet mornings, wooden tables, and soft lifestyle aesthetics.  
+    <br><br>
+    Each pattern is delivered digitally by email, with optional $2 custom adjustments 
+    for the perfect fit.
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-brand">Blueberry Patterns</div>
+  <p>Digital sewing patterns · Cloud Aesthetic · Soft Lifestyle Studio</p>
+</footer>
+
 </body>
 </html>
-
