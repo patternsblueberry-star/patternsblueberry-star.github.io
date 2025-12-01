@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Cloud + Liver Website</title>
+  <title>Blueberry Patterns · Cloud Digital Sewing Patterns</title>
 
   <style>
     :root {
@@ -44,10 +44,17 @@
       line-height: 1.05;
     }
 
-    .hero p {
+    .hero-subtitle {
       font-size: 18px;
       line-height: 1.6;
-      margin: 0 0 24px 0;
+      margin: 0 0 16px 0;
+    }
+
+    .hero-meta {
+      font-size: 14px;
+      color: #555;
+      margin-top: 8px;
+      line-height: 1.6;
     }
 
     .btn {
@@ -68,11 +75,25 @@
       background: var(--cloud-accent);
     }
 
+    .btn-secondary {
+      background: var(--white);
+      color: var(--liver-deep);
+      border: 1px solid #ddd;
+      margin-left: 12px;
+    }
+
     .hero-image {
       width: 350px;
       height: 260px;
       background: #AFC7DD;
       border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 16px;
     }
 
     .section-cloud {
@@ -102,6 +123,15 @@
       margin: 0 0 16px 0;
     }
 
+    .subtext-center {
+      max-width: 720px;
+      margin: 0 auto 24px auto;
+      text-align: center;
+      font-size: 16px;
+      line-height: 1.8;
+      color: #555;
+    }
+
     .card-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -124,6 +154,20 @@
       margin-bottom: 10px;
     }
 
+    .card-tag {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #777;
+      margin-bottom: 6px;
+    }
+
+    .card-footnote {
+      font-size: 13px;
+      color: #777;
+      margin-top: 8px;
+    }
+
     .section-cta {
       background: var(--cloud-main);
       color: var(--liver-deep);
@@ -133,6 +177,48 @@
     .section-cta p {
       margin: 12px 0 0 0;
       font-size: 16px;
+    }
+
+    .lookbook-grid {
+      max-width: 1100px;
+      margin: 40px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .look-item {
+      background: #d4dfeb;
+      border-radius: 20px;
+      height: 160px;
+      padding: 14px;
+      font-size: 14px;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .look-label {
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .philosophy-text {
+      max-width: 860px;
+      margin: 0 auto;
+      font-size: 16px;
+      line-height: 1.9;
+      color: #555;
+    }
+
+    .contact-row {
+      max-width: 600px;
+      margin: 24px auto 0;
+      font-size: 15px;
+      line-height: 1.8;
+      color: #555;
+      text-align: center;
     }
 
     footer {
@@ -161,6 +247,10 @@
         grid-template-columns: 1fr;
       }
 
+      .lookbook-grid {
+        grid-template-columns: 1fr;
+      }
+
       .hero-image {
         width: 100%;
       }
@@ -170,64 +260,170 @@
 
 <body>
 
-  <!-- HERO -->
-  <section class="section">
+  <!-- HERO / Homepage 顶部 -->
+  <section class="section" id="home">
     <div class="hero">
       <div>
-        <h1 class="hero-title">Calm. Clean. Cloud.</h1>
-        <p>Cloud smoothie blue mixed with rich liver tones for a soft, curated life.</p>
-        <button class="btn btn-primary">Shop the Collection</button>
+        <h1 class="hero-title">Blueberry Patterns</h1>
+        <p class="hero-subtitle">
+          Digital sewing patterns for a clean, cloud-like wardrobe.<br />
+          电子服装图纸 · 干净、空灵、带一点 Erewhon 的温柔贵气。
+        </p>
+        <p class="hero-meta">
+          即买即发邮件 · 可选 $2 身体调整 · $7/月订阅，每月 2 个新图纸。
+        </p>
+        <div style="margin-top: 20px;">
+          <button class="btn btn-primary">Browse Patterns</button>
+          <button class="btn btn-secondary">Learn about Subscription</button>
+        </div>
       </div>
       <div class="hero-image">
-        <!-- 这里以后可以换成你的图片背景 / 产品图 -->
+        Cloud smoothie blue + liver tones.<br />
+        想像你的缝纫桌：纸样、线轴、柔和光线。
       </div>
     </div>
   </section>
 
-  <!-- BRAND STORY -->
-  <section class="section section-cloud">
+  <!-- BRAND STORY / About 简介 -->
+  <section class="section section-cloud" id="about">
     <div class="grid-2">
-      <div style="background:#AFC7DD;height:300px;border-radius:20px;">
-        <!-- 这里也可以放一张拼贴图 / mood board -->
+      <div style="background:#AFC7DD;height:300px;border-radius:20px;display:flex;align-items:center;justify-content:center;color:#fff;padding:20px;text-align:center;">
+        这里以后可以换成你的工作室照片 / mood board：<br />
+        云蓝、木桌、纸样、线、缝纫机。
       </div>
       <div>
-        <h2 class="section-title">Designed for the taste of peace.</h2>
-        <p>A mix of cloud blue and liver tones, built for slow mornings, clean lines, and soft light.</p>
-        <p>Perfect for lifestyle, fashion, and curated home objects that feel calm but intentional.</p>
+        <h2 class="section-title">Designed for soft, intentional making.</h2>
+        <p>
+          Blueberry Patterns 的主营业务是<span style="font-weight:600;">电子服装图纸</span>。
+          顾客结账后会直接收到邮件中的 PDF 文件，在家打印、裁剪即可开工。
+        </p>
+        <p>
+          如果需要根据自己的身体做调整（例如：身长、腰围、胸围等），你提供
+          <span style="font-weight:600;">$2/每次</span> 的身体调整服务——轻量但贴心。
+        </p>
+        <p>
+          同时你还有一个 <span style="font-weight:600;">$7/月订阅</span>：
+          每月发布 <span style="font-weight:600;">2 个新图纸</span>，适合喜欢慢慢缝纫、
+          喜欢清洁审美的手工爱好者。
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- PRODUCTS -->
-  <section class="section">
-    <h2 class="section-title" style="text-align:center;">Featured Pieces</h2>
+  <!-- SERVICES / Shop / Subscription / Adjustment -->
+  <section class="section" id="services">
+    <h2 class="section-title" style="text-align:center;">What Blueberry offers</h2>
+    <p class="subtext-center">
+      “专业又干净、艺术、温暖、有 Lifestyle 感” —— 面向喜欢缝纫、喜欢手工、
+      喜欢清洁审美的客人，也面向想见识你生活方式的粉丝。
+    </p>
 
     <div class="card-row">
+      <!-- Digital Patterns -->
       <div class="card">
-        <h3 class="card-title">Cloud Mug</h3>
-        <p>Soft glazed blue with a liver rim, built for slow coffee mornings.</p>
+        <div class="card-tag">Digital Patterns</div>
+        <h3 class="card-title">电子服装图纸</h3>
+        <p>
+          所有款式以 PDF 电子图纸形式出售，结账后自动通过邮箱发送。
+          支持在家用 A4/Letter 打印，或拿去打印店出图。
+        </p>
+        <p class="card-footnote">
+          Instant email delivery · Clean, cloud-inspired silhouettes.
+        </p>
       </div>
 
+      <!-- Body Adjustment -->
       <div class="card">
-        <h3 class="card-title">Striped Throw</h3>
-        <p>Cloud blue and liver red stripe, inspired by grocery aisles and cloud drinks.</p>
+        <div class="card-tag">Fit Adjustment</div>
+        <h3 class="card-title">$2 身体调整服务</h3>
+        <p>
+          如果你需要图纸跟你的身体更加贴合，可以提供身高、三围等基本数据，
+          每次小调整只需 <strong>$2</strong>，让版型更合身、更好做。
+        </p>
+        <p class="card-footnote">
+          Bust / waist / hip / length tweaks · Done via email.
+        </p>
       </div>
 
-      <div class="card">
-        <h3 class="card-title">Cloud Candle</h3>
-        <p>Warm, clean burn in a powder blue vessel, with a grounded base note.</p>
+      <!-- Subscription -->
+      <div class="card" id="subscription">
+        <div class="card-tag">Monthly Subscription</div>
+        <h3 class="card-title">$7/月订阅 · 每月 2 个新图纸</h3>
+        <p>
+          对于每个月都在做衣服的 sewist，可以订阅 Blueberry Patterns：
+          每月收到两款新的电子图纸，延续相同 Cloud aesthetic & Erewhon vibe。
+        </p>
+        <p class="card-footnote">
+          Cancel anytime · Perfect for regular home sewists.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section section-cta">
-    <h2 class="section-title">Join the Cloud Club</h2>
-    <p>Early access, limited drops, and styling ideas for cloud & liver living.</p>
+  <!-- LOOKBOOK / Portfolio -->
+  <section class="section" id="lookbook">
+    <h2 class="section-title" style="text-align:center;">Lookbook · Portfolio</h2>
+    <p class="subtext-center">
+      用来展示你用 Blueberry Patterns 做出来的成品、试穿照、细节特写，
+      也可以是你喜欢的生活方式照片，让客人感受到一种 cloud lifestyle。
+    </p>
+
+    <div class="lookbook-grid">
+      <div class="look-item">
+        <div class="look-label">Cloud Lounge Set</div>
+        <div>柔软居家套装：云蓝上衣 + 干净剪裁裤子，可以放模特或自己穿搭照。</div>
+      </div>
+      <div class="look-item">
+        <div class="look-label">Blueberry Wrap Top</div>
+        <div>包裹上衣、腰侧系带细节，适合放领口与缝线的近景照片。</div>
+      </div>
+      <div class="look-item">
+        <div class="look-label">Studio Table</div>
+        <div>木桌、纸样、布料、咖啡杯，给人 Erewhon + sewing studio 的氛围感。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Philosophy / 核心理念 -->
+  <section class="section section-cloud" id="philosophy">
+    <h2 class="section-title" style="text-align:center;">Brand Philosophy · 品牌核心理念</h2>
+    <div class="philosophy-text">
+      <p>
+        Blueberry Patterns 想呈现的是一种 <strong>“干净、空灵、温暖但专业”</strong> 的氛围——
+        有一点 Erewhon 的健康和贵气，也有 Cloud aesthetic 的轻盈和空气感。
+      </p>
+      <p>
+        你希望客人感觉：拿到图纸，不只是买到一个版型，而是进入一种生活方式：
+        在安静的早晨、柔和的光线下，一点一点裁布、缝线，做一件只属于自己的衣服。
+      </p>
+      <p>
+        目标客群是喜欢缝纫、喜欢手工、喜欢家里干干净净的女生/男生，
+        以及对你个人生活方式好奇、想跟着你一起慢慢做东西的粉丝。
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact / Socials -->
+  <section class="section" id="contact">
+    <h2 class="section-title" style="text-align:center;">Contact · Socials</h2>
+    <p class="subtext-center">
+      这里可以简单放你的社交媒体和联系方式，让喜欢你图纸和生活方式的人可以找到你。
+      例如：Instagram、TikTok、小红书、Email 等。
+    </p>
+    <div class="contact-row">
+      <p>
+        Instagram：@your_instagram<br />
+        TikTok：@your_tiktok<br />
+        Email：hello@blueberrypatterns.com
+      </p>
+      <p style="margin-top:12px;font-size:13px;color:#777;">
+        （以上先写占位，等你有正式账号再改成真实链接就好。）
+      </p>
+    </div>
   </section>
 
   <footer>
-    © 2025 Your Brand Name
+    © 2025 Blueberry Patterns · Digital Sewing Patterns · Cloud & Liver Studio
   </footer>
 
 </body>
