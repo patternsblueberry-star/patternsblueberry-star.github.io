@@ -163,6 +163,27 @@
       text-align: center;
     }
 
+    .section-title {
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-size: 36px;
+      color: var(--liver-deep);
+      margin-bottom: 18px;
+    }
+
+    .section p {
+      font-size: 16px;
+      line-height: 1.8;
+      margin: 0 0 16px 0;
+    }
+
+    .subtext-center {
+      max-width: 720px;
+      margin: 0 auto 24px auto;
+      font-size: 16px;
+      line-height: 1.8;
+      color: #555;
+    }
+
     /* HERO */
     #home {
       background: radial-gradient(circle at top, #C4D5EA 0%, var(--cloud-main) 45%, #91A9CD 100%);
@@ -372,27 +393,6 @@
       opacity: 0.9;
     }
 
-    .section-title {
-      font-family: "Playfair Display", "Times New Roman", serif;
-      font-size: 36px;
-      color: var(--liver-deep);
-      margin-bottom: 18px;
-    }
-
-    .section p {
-      font-size: 16px;
-      line-height: 1.8;
-      margin: 0 0 16px 0;
-    }
-
-    .subtext-center {
-      max-width: 720px;
-      margin: 0 auto 24px auto;
-      font-size: 16px;
-      line-height: 1.8;
-      color: #555;
-    }
-
     /* About section */
     #about {
       background: var(--cloud-soft);
@@ -429,102 +429,195 @@
       color: #1F2733;
     }
 
-    .shop-layout {
-      display: flex;
-      gap: 2rem;
-      align-items: flex-start;
-      margin-top: 26px;
-    }
-
-    .shop-sidebar {
-      flex: 0 0 180px;
-      font-size: 0.95rem;
+    /* 让 Shop 内部内容改为左对齐排版 */
+    #shop .section-inner {
       text-align: left;
     }
 
-    .shop-filters {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .shop-filter {
-      cursor: pointer;
-      padding: 0.35rem 0;
-      color: #666;
-      transition: color 0.15s ease, transform 0.15s ease;
-    }
-
-    .shop-filter.active {
-      font-weight: 600;
-      color: #1d4ed8;
-      transform: translateX(4px);
-    }
-
-    .shop-grid {
-      flex: 1;
+    .shop-inner {
+      max-width: 1100px;
+      margin: 26px auto 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1.75rem;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 2.5rem;
     }
 
-    .product-card {
-      background: rgba(255,255,255,0.96);
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.7);
-      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.08);
-      overflow: hidden;
+    .shop-sidebar {
+      position: sticky;
+      top: 6rem;
+      align-self: flex-start;
+      padding: 1.75rem;
+      border-radius: 1.5rem;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 18px 40px rgba(175, 199, 221, 0.4);
+      border: 1px solid rgba(175, 199, 221, 0.6);
+      backdrop-filter: blur(8px);
+      text-align: left;
+    }
+
+    .shop-sidebar-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0 0 0.5rem;
+      color: #1f2937;
+    }
+
+    .shop-sidebar-sub {
+      font-size: 0.88rem;
+      margin: 0 0 1.5rem;
+      color: #6b7488;
+      line-height: 1.5;
+    }
+
+    .shop-categories {
       display: flex;
       flex-direction: column;
-      padding-bottom: 1.2rem;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .category-btn {
+      border: none;
+      padding: 0.7rem 0.9rem;
+      border-radius: 999px;
+      background: #f3f6fc;
+      color: #4a5670;
+      font-size: 0.9rem;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .category-btn:hover {
+      background: #e3edff;
+      transform: translateX(2px);
+    }
+
+    .category-btn.active {
+      background: var(--cloud-main);
+      color: #1f2330;
+      box-shadow: 0 10px 25px rgba(175, 199, 221, 0.8);
+    }
+
+    .shop-note {
+      font-size: 0.8rem;
+      line-height: 1.4;
+      color: #6b7488;
+      border-radius: 0.9rem;
+      padding: 0.7rem 0.9rem;
+      background: #f5f7ff;
+    }
+
+    /* 右侧商品网格 */
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.8rem;
+    }
+
+    /* 商品卡片 */
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      border-radius: 1.4rem;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgba(175, 199, 221, 0.45);
+      overflow: hidden;
+      border: 1px solid rgba(175, 199, 221, 0.8);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(175, 199, 221, 0.7);
+    }
+
+    .product-image-wrap {
+      position: relative;
+      padding: 1rem;
+      background: radial-gradient(circle at top left, #f7dada, #afc7dd);
     }
 
     .product-image {
       width: 100%;
-      height: 260px;
+      display: block;
+      border-radius: 1rem;
       object-fit: cover;
+      aspect-ratio: 4 / 5;
+      background: #dbe4f5;
     }
 
-    .product-info {
-      padding: 1rem 1.2rem 0;
-      text-align: center;
+    .product-tag {
+      position: absolute;
+      left: 1.8rem;
+      top: 1.6rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: rgba(255, 255, 255, 0.85);
+      color: #3a4255;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+
+    .product-tag-sub {
+      background: #f7dada;
+      color: #4e1f25;
+    }
+
+    .product-body {
+      padding: 1.1rem 1.1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: left;
     }
 
     .product-title {
       font-family: "Playfair Display", "Times New Roman", serif;
-      font-size: 20px;
-      margin: 0 0 0.3rem;
-      color: #1d4ed8;
+      font-size: 1.05rem;
+      margin: 0;
+      color: #222639;
+    }
+
+    .product-desc {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin: 0;
+      color: #5a6478;
+    }
+
+    .product-meta {
+      margin-top: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
     }
 
     .product-price {
-      font-size: 0.95rem;
-      margin: 0 0 0.6rem;
       font-weight: 600;
-      color: #1e3a8a;
+      font-size: 0.98rem;
+      color: #20253a;
     }
 
-    .product-subtext {
-      font-size: 0.8rem;
-      margin: 0 0 0.8rem;
-      color: #6b7280;
-    }
-
-    .product-button {
-      display: inline-block;
-      width: 100%;
-      padding: 0.65rem 1rem;
+    .product-btn {
+      padding: 0.55rem 0.9rem;
       border-radius: 999px;
-      border: none;
-      text-align: center;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      background: var(--cloud-main);
+      color: #1f2330;
       text-decoration: none;
-      background: #1d4ed8;
-      color: #fff;
-      cursor: pointer;
+      font-size: 0.86rem;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: background 0.2s ease, transform 0.2s ease,
+                  box-shadow 0.2s ease;
+      box-shadow: 0 8px 18px rgba(175, 199, 221, 0.8);
+    }
+
+    .product-btn:hover {
+      background: var(--cloud-accent);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(175, 199, 221, 0.9);
     }
 
     /* Lookbook section */
@@ -655,24 +748,20 @@
         width: 100%;
       }
 
-      .shop-layout {
-        flex-direction: column;
+      .shop-inner {
+        grid-template-columns: 1fr;
       }
 
       .shop-sidebar {
-        display: flex;
-        gap: 1.5rem;
-      }
-
-      .shop-filters {
-        display: flex;
-        gap: 1.5rem;
+        position: static;
+        order: -1;
+        margin-bottom: 1rem;
       }
     }
 
     @media (max-width: 600px) {
       .product-image {
-        height: 220px;
+        aspect-ratio: 4 / 5;
       }
     }
   </style>
@@ -694,7 +783,8 @@
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#shop">Shop</a>
-        <a href="#subscription">Subscription</a>
+        <!-- Subscription 链接现在也跳到 Shop，并自动切换筛选 -->
+        <a href="#shop" data-shop-filter="subscription">Subscription</a>
         <a href="#lookbook">Lookbook</a>
         <a href="#philosophy">Philosophy</a>
         <a href="#contact">Contact</a>
@@ -790,72 +880,118 @@
         Cloud-blue PDF patterns and a monthly subscription, delivered straight to your inbox.
       </p>
 
-      <div class="shop-layout">
+      <div class="shop-inner">
         <!-- 左侧分类 -->
         <aside class="shop-sidebar">
-          <ul class="shop-filters">
-            <li class="shop-filter active">All</li>
-            <li class="shop-filter">Patterns</li>
-            <li class="shop-filter">Subscription</li>
-          </ul>
+          <div class="shop-sidebar-title">Filter</div>
+          <p class="shop-sidebar-sub">
+            Browse all patterns, or just peek at the subscription club.
+          </p>
+          <div class="shop-categories">
+            <button class="category-btn active" data-filter="all">All</button>
+            <button class="category-btn" data-filter="patterns">Patterns</button>
+            <button class="category-btn" data-filter="subscription">Subscription</button>
+          </div>
+          <p class="shop-note">
+            All products are PDF downloads.
+            Subscription includes members-only patterns & extras.
+          </p>
         </aside>
 
         <!-- 右侧商品网格 -->
         <div class="shop-grid">
           <!-- Pattern 1 -->
-          <div class="product-card">
-            <img src="images/pattern1.jpg" alt="Cloud Skirt pattern" class="product-image" />
-            <div class="product-info">
-              <h3 class="product-title">Cloud Skirt – PDF Pattern</h3>
-              <p class="product-price">$7.95</p>
-              <a href="#" class="product-button">Add to Cart</a>
+          <article class="product-card" data-category="patterns">
+            <div class="product-image-wrap">
+              <img src="images/pattern1.jpg" alt="Cloud Skirt pattern" class="product-image" />
+              <span class="product-tag">PDF Pattern</span>
             </div>
-          </div>
+            <div class="product-body">
+              <h3 class="product-title">Cloud Skirt</h3>
+              <p class="product-desc">
+                Elastic waist skirt with a soft A-line shape, perfect for everyday cloud outfits.
+              </p>
+              <div class="product-meta">
+                <span class="product-price">$7.95</span>
+                <a href="#" class="product-btn">Add to Cart</a>
+              </div>
+            </div>
+          </article>
 
           <!-- Pattern 2 -->
-          <div class="product-card">
-            <img src="images/pattern2.jpg" alt="Liver Sweater pattern" class="product-image" />
-            <div class="product-info">
-              <h3 class="product-title">Liver Sweater – PDF Pattern</h3>
-              <p class="product-price">$7.95</p>
-              <a href="#" class="product-button">Add to Cart</a>
+          <article class="product-card" data-category="patterns">
+            <div class="product-image-wrap">
+              <img src="images/pattern2.jpg" alt="Liver Sweater pattern" class="product-image" />
+              <span class="product-tag">PDF Pattern</span>
             </div>
-          </div>
+            <div class="product-body">
+              <h3 class="product-title">Liver Sweater</h3>
+              <p class="product-desc">
+                Slightly oversized sweater with dropped shoulders and cozy, cloud-soft vibes.
+              </p>
+              <div class="product-meta">
+                <span class="product-price">$7.95</span>
+                <a href="#" class="product-btn">Add to Cart</a>
+              </div>
+            </div>
+          </article>
 
           <!-- Pattern 3 -->
-          <div class="product-card">
-            <img src="images/pattern3.jpg" alt="Blueberry Top pattern" class="product-image" />
-            <div class="product-info">
-              <h3 class="product-title">Blueberry Top – PDF Pattern</h3>
-              <p class="product-price">$7.95</p>
-              <a href="#" class="product-button">Add to Cart</a>
+          <article class="product-card" data-category="patterns">
+            <div class="product-image-wrap">
+              <img src="images/pattern3.jpg" alt="Blueberry Top pattern" class="product-image" />
+              <span class="product-tag">PDF Pattern</span>
             </div>
-          </div>
+            <div class="product-body">
+              <h3 class="product-title">Blueberry Top</h3>
+              <p class="product-desc">
+                A simple, slightly cropped top designed to pair with high-waisted everything.
+              </p>
+              <div class="product-meta">
+                <span class="product-price">$7.95</span>
+                <a href="#" class="product-btn">Add to Cart</a>
+              </div>
+            </div>
+          </article>
 
           <!-- Pattern 4 -->
-          <div class="product-card">
-            <img src="images/pattern4.jpg" alt="Matcha Cardigan pattern" class="product-image" />
-            <div class="product-info">
-              <h3 class="product-title">Matcha Cardigan – PDF Pattern</h3>
-              <p class="product-price">$7.95</p>
-              <a href="#" class="product-button">Add to Cart</a>
+          <article class="product-card" data-category="patterns">
+            <div class="product-image-wrap">
+              <img src="images/pattern4.jpg" alt="Matcha Cardigan pattern" class="product-image" />
+              <span class="product-tag">PDF Pattern</span>
             </div>
-          </div>
-
-          <!-- Subscription 卡片 -->
-          <div class="product-card" id="subscription">
-            <img src="images/subscription.jpg" alt="Monthly subscription" class="product-image" />
-            <div class="product-info">
-              <h3 class="product-title">Monthly Pattern Subscription</h3>
-              <p class="product-price">$14.95 / month</p>
-              <p class="product-subtext">
-                1–2 fresh Blueberry patterns every month + tiny sewing notes and variations.
+            <div class="product-body">
+              <h3 class="product-title">Matcha Cardigan</h3>
+              <p class="product-desc">
+                Button-up cardigan with soft edges and just enough structure to feel polished.
               </p>
-              <a href="https://你的-stripe-或-visa-链接" class="product-button">
-                Subscribe
-              </a>
+              <div class="product-meta">
+                <span class="product-price">$7.95</span>
+                <a href="#" class="product-btn">Add to Cart</a>
+              </div>
             </div>
-          </div>
+          </article>
+
+          <!-- Subscription 卡片（混在同一网格里） -->
+          <article class="product-card" data-category="subscription">
+            <div class="product-image-wrap">
+              <img src="images/subscription.jpg" alt="Monthly subscription" class="product-image" />
+              <span class="product-tag product-tag-sub">Subscription</span>
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Monthly Pattern Subscription</h3>
+              <p class="product-desc">
+                1–2 fresh Blueberry patterns every month, plus mini projects,
+                sewing notes and members-only discounts.
+              </p>
+              <div class="product-meta">
+                <span class="product-price">$14.95 / month</span>
+                <a href="https://你的-stripe-或-visa-链接" class="product-btn">
+                  Subscribe
+                </a>
+              </div>
+            </div>
+          </article>
 
         </div>
       </div>
@@ -947,5 +1083,48 @@
     <span>© 2025 Blueberry Patterns · Digital Sewing Patterns · Blueberry Studio</span>
   </footer>
 
+  <!-- 小 JS：分类筛选 + 顶部 Subscription 链接联动 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const categoryButtons = document.querySelectorAll('.category-btn');
+      const productCards = document.querySelectorAll('.product-card');
+
+      function applyFilter(filter) {
+        categoryButtons.forEach(b => b.classList.remove('active'));
+        categoryButtons.forEach(b => {
+          if (b.getAttribute('data-filter') === filter) {
+            b.classList.add('active');
+          }
+          if (filter === 'all') {
+            const allBtn = document.querySelector('.category-btn[data-filter="all"]');
+            if (allBtn) allBtn.classList.add('active');
+          }
+        });
+
+        productCards.forEach(card => {
+          const cat = card.getAttribute('data-category');
+          if (filter === 'all' || cat === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      categoryButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.getAttribute('data-filter');
+          applyFilter(filter);
+        });
+      });
+
+      const navSubLink = document.querySelector('a[data-shop-filter="subscription"]');
+      if (navSubLink) {
+        navSubLink.addEventListener('click', function () {
+          setTimeout(() => applyFilter('subscription'), 80);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
