@@ -728,37 +728,78 @@
   <h2 class="section-title">Shop</h2>
 
   <div class="shop-layout">
-    <!-- 左边分类栏 -->
+    <!-- 左侧分类栏 -->
     <aside class="shop-sidebar">
       <ul class="shop-filters">
         <li class="shop-filter active">All</li>
         <li class="shop-filter">Knitting Patterns</li>
         <li class="shop-filter">Subscription</li>
-        <!-- 你要的话还能加 Accessories -->
       </ul>
     </aside>
 
-    <!-- 右边商品网格：把你原来放商品卡片的那一堆 div 都放到这里 -->
+    <!-- 右侧商品网格 -->
     <div class="shop-grid">
-      <!-- 这里放你原本所有 pattern 卡片 -->
+      <!-- 下面这些是示例卡片，把内容换成你自己的 -->
 
-      <!-- 再把 Subscription 做成一张“商品卡片”插到这里 -->
+      <!-- Pattern 1 -->
+      <div class="product-card">
+        <img src="images/pattern1.jpg" alt="Pattern 1" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">Cloud Skirt – PDF Pattern</h3>
+          <p class="product-price">$7.95</p>
+          <a href="#" class="product-button">Add to Cart</a>
+        </div>
+      </div>
+
+      <!-- Pattern 2 -->
+      <div class="product-card">
+        <img src="images/pattern2.jpg" alt="Pattern 2" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">Liver Sweater – PDF Pattern</h3>
+          <p class="product-price">$7.95</p>
+          <a href="#" class="product-button">Add to Cart</a>
+        </div>
+      </div>
+
+      <!-- Pattern 3 -->
+      <div class="product-card">
+        <img src="images/pattern3.jpg" alt="Pattern 3" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">Blueberry Top – PDF Pattern</h3>
+          <p class="product-price">$7.95</p>
+          <a href="#" class="product-button">Add to Cart</a>
+        </div>
+      </div>
+
+      <!-- Pattern 4 -->
+      <div class="product-card">
+        <img src="images/pattern4.jpg" alt="Pattern 4" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">Matcha Cardigan – PDF Pattern</h3>
+          <p class="product-price">$7.95</p>
+          <a href="#" class="product-button">Add to Cart</a>
+        </div>
+      </div>
+
+      <!-- Subscription 卡片：放在同一网格里 -->
       <div class="product-card subscription-card">
         <img src="images/subscription.jpg" alt="Monthly subscription" class="product-image">
         <div class="product-info">
           <h3 class="product-title">Monthly Pattern Subscription</h3>
           <p class="product-price">$14.95 / month</p>
           <p class="product-subtext">
-            每月一份新 Blueberry 图纸 + 小教程更新
+            每月一份全新 Blueberry 图纸 + 小教程和变体。
           </p>
-          <a href="#subscription-link-or-stripe-url" class="product-button">
+          <a href="https://你的-stripe-或-visa-链接" class="product-button">
             Subscribe
           </a>
         </div>
       </div>
+
     </div>
   </div>
 </section>
+
 
 
   <!-- LOOKBOOK / Portfolio -->
