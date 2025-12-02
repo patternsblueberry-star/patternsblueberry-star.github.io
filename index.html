@@ -8,14 +8,13 @@
     :root {
       --cloud-main: #AFC7DD;
       --cloud-accent: #A7C4DE;
-      --cloud-soft: #E9F1FA;
+      --cloud-soft: #E4EEF7;
       --cloud-peach: #F7DADA;
 
-      --liver-deep: #6C2E33;
+      --liver-deep: #4E1F25;
       --liver-soft: #8A4A49;
 
-      --bg-main: #F5F7FA;
-      --bg-cloud: #E7EEF5;
+      --bg-main: #E4EEF7;
       --text-main: #2A2A2A;
       --white: #ffffff;
     }
@@ -32,12 +31,11 @@
 
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #FDFBFF 0%, var(--bg-main) 45%, var(--cloud-soft) 100%);
+      background: var(--bg-main);
       color: var(--text-main);
       -webkit-font-smoothing: antialiased;
     }
 
-    /* 小动画 */
     @keyframes floatUpSoft {
       0% { transform: translateY(10px); opacity: 0; }
       100% { transform: translateY(0); opacity: 1; }
@@ -59,9 +57,9 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(245, 247, 250, 0.98);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0,0,0,0.04);
+      background: rgba(164, 193, 221, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.4);
       padding: 12px 6vw;
     }
 
@@ -84,13 +82,13 @@
       width: 26px;
       height: 26px;
       border-radius: 999px;
-      background: conic-gradient(from 150deg, var(--cloud-main), var(--cloud-peach), var(--cloud-accent), var(--cloud-main));
+      background: conic-gradient(from 150deg, #FFFFFF, var(--cloud-main), var(--cloud-accent), #FFFFFF);
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: 0 8px 20px rgba(0,0,0,0.08);
       font-size: 14px;
-      color: var(--white);
+      color: var(--liver-deep);
     }
 
     .nav-logo {
@@ -98,13 +96,13 @@
       font-size: 20px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--liver-deep);
+      color: var(--white);
       white-space: nowrap;
     }
 
     .nav-tagline {
       font-size: 11px;
-      color: #888;
+      color: #EBF3FF;
       letter-spacing: 0.18em;
       text-transform: uppercase;
     }
@@ -126,7 +124,7 @@
 
     .nav-links a {
       text-decoration: none;
-      color: #555;
+      color: #F5F9FF;
       padding-bottom: 2px;
       border-bottom: 1px solid transparent;
       position: relative;
@@ -145,8 +143,8 @@
     }
 
     .nav-links a:hover {
-      border-bottom-color: var(--liver-soft);
-      color: var(--liver-soft);
+      border-bottom-color: #ffffff;
+      color: #ffffff;
     }
 
     .nav-links a:hover::after {
@@ -155,24 +153,34 @@
     }
 
     .section {
-      padding: 120px 6vw;
+      padding: 110px 6vw;
+    }
+
+    /* 让每个 section 里面的说明文字居中 */
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* HERO 全蓝背景，大面积使用蓝色 */
+    #home {
+      background: radial-gradient(circle at top, #C4D5EA 0%, var(--cloud-main) 45%, #91A9CD 100%);
+      color: #fff;
     }
 
     .hero {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      max-width: 1100px;
-      margin: 0 auto;
-      gap: 48px;
+      gap: 36px;
     }
 
     .hero-title {
       font-family: "Playfair Display", "Times New Roman", serif;
-      font-size: 58px;
-      color: var(--liver-deep);
-      margin: 0 0 16px 0;
-      line-height: 1.02;
+      font-size: 56px;
+      margin: 10px 0 16px 0;
+      line-height: 1.05;
       animation: floatUpSoft 0.9s ease forwards;
     }
 
@@ -184,7 +192,7 @@
       padding: 5px 12px;
       border-radius: 999px;
       background: rgba(247, 218, 218, 0.7);
-      color: var(--liver-soft);
+      color: var(--liver-deep);
       margin-bottom: 10px;
     }
 
@@ -198,17 +206,17 @@
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: var(--liver-soft);
+      background: var(--liver-deep);
     }
 
     .hero-subtitle {
       font-size: 18px;
-      line-height: 1.6;
-      margin: 0 0 16px 0;
+      line-height: 1.7;
+      margin: 0 0 12px 0;
     }
 
     .hero-subtitle span {
-      background: linear-gradient(120deg, var(--cloud-main), var(--cloud-peach));
+      background: linear-gradient(120deg, #ffffff, var(--cloud-peach));
       -webkit-background-clip: text;
       color: transparent;
       font-weight: 500;
@@ -216,13 +224,13 @@
 
     .hero-meta {
       font-size: 14px;
-      color: #555;
-      margin-top: 8px;
+      margin-top: 6px;
       line-height: 1.6;
+      opacity: 0.92;
     }
 
     .hero-meta strong {
-      color: var(--liver-soft);
+      color: #FFE4E4;
     }
 
     .btn-row {
@@ -230,6 +238,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      justify-content: center;
     }
 
     .btn {
@@ -258,42 +267,49 @@
     }
 
     .btn-primary {
-      background: var(--cloud-main);
+      background: #ffffff;
       color: var(--liver-deep);
-      box-shadow: 0 10px 26px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.15);
     }
 
     .btn-primary:hover {
-      background: var(--cloud-accent);
+      background: #FDF8FF;
       transform: translateY(-1px);
-      box-shadow: 0 14px 32px rgba(0,0,0,0.14);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.18);
     }
 
     .btn-secondary {
-      background: var(--white);
-      color: var(--liver-deep);
-      border: 1px solid #ddd;
+      background: rgba(255,255,255,0.2);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.7);
     }
 
     .btn-secondary:hover {
-      border-color: var(--liver-soft);
+      background: rgba(255,255,255,0.3);
       transform: translateY(-1px);
+    }
+
+    .hero-visual-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
     }
 
     .hero-image {
       position: relative;
       width: 360px;
-      height: 270px;
+      height: 260px;
       border-radius: 34px;
-      background: radial-gradient(circle at 10% 0%, var(--white), var(--cloud-main) 55%, var(--cloud-peach));
+      background: radial-gradient(circle at 10% 0%, #FFFFFF, #D5E3F3 45%, var(--cloud-main));
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
+      color: #3A2A2A;
       text-align: center;
       padding: 22px;
       font-size: 15px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
       overflow: hidden;
       animation: floatUpSoft 1.1s ease forwards;
     }
@@ -323,7 +339,7 @@
       right: -10px;
       width: 120px;
       height: 60px;
-      background: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.8);
       border-radius: 50px;
       filter: blur(2px);
       animation: cloudDrift 6s ease-in-out infinite;
@@ -333,7 +349,7 @@
     .hero-cloud::after {
       content: "";
       position: absolute;
-      background: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.9);
       border-radius: 50%;
     }
 
@@ -351,84 +367,110 @@
       right: 8px;
     }
 
-    .section-cloud {
-      background: var(--bg-cloud);
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      max-width: 1100px;
-      margin: 0 auto;
-      align-items: center;
+    .hero-caption {
+      font-size: 13px;
+      opacity: 0.9;
     }
 
     .section-title {
       font-family: "Playfair Display", "Times New Roman", serif;
-      font-size: 38px;
+      font-size: 36px;
       color: var(--liver-deep);
-      margin-bottom: 20px;
-      text-align: left;
+      margin-bottom: 18px;
     }
 
     .section p {
       font-size: 16px;
-      line-height: 1.7;
+      line-height: 1.8;
       margin: 0 0 16px 0;
     }
 
     .subtext-center {
       max-width: 720px;
       margin: 0 auto 24px auto;
-      text-align: center;
       font-size: 16px;
       line-height: 1.8;
       color: #555;
     }
 
+    /* About section:浅蓝背景+居中 */
+    #about {
+      background: var(--cloud-soft);
+    }
+
+    .about-columns {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    .about-image {
+      max-width: 520px;
+      height: 260px;
+      margin: 0 auto;
+      border-radius: 24px;
+      background: linear-gradient(135deg,var(--cloud-main),var(--cloud-accent));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      padding:20px;
+      font-size:15px;
+    }
+
+    /* Shop section: 大面积蓝色块 + 卡片浅色 */
+    #shop {
+      background: linear-gradient(180deg, var(--cloud-main) 0%, var(--cloud-soft) 60%);
+    }
+
+    #shop .section-title,
+    #shop .subtext-center {
+      color: #1F2733;
+    }
+
     .card-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      max-width: 1100px;
-      margin: 30px auto 0;
+      gap: 26px;
+      margin-top: 26px;
     }
 
     .card {
-      background: var(--white);
+      background: rgba(255,255,255,0.96);
       padding: 26px 24px 24px;
       border-radius: 24px;
-      border: 1px solid #e4e4e4;
+      border: 1px solid rgba(255,255,255,0.7);
       position: relative;
       overflow: hidden;
       transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      text-align: center;
     }
 
     .card::after {
       content: "✂︎";
       position: absolute;
-      right: 16px;
-      top: 14px;
+      right: 14px;
+      top: 10px;
       font-size: 18px;
       color: rgba(175,199,221,0.25);
     }
 
     .card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.08);
-      border-color: rgba(175,199,221,0.7);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.10);
+      border-color: rgba(255,255,255,0.9);
     }
 
     .card-title {
       font-family: "Playfair Display", "Times New Roman", serif;
-      font-size: 23px;
+      font-size: 22px;
       color: var(--liver-deep);
       margin-bottom: 10px;
     }
 
     .card-tag {
-      font-size: 12px;
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: #777;
@@ -441,29 +483,32 @@
       margin-top: 8px;
     }
 
-    .section-cta {
+    /* Lookbook section: 再来一块蓝色 */
+    #lookbook {
       background: var(--cloud-main);
-      color: var(--liver-deep);
-      text-align: center;
+      color: #1F2733;
     }
 
-    .section-cta p {
-      margin: 12px 0 0 0;
-      font-size: 16px;
+    #lookbook .section-title {
+      color: #1F2733;
+    }
+
+    #lookbook .subtext-center {
+      color: #1F2733;
+      opacity: 0.9;
     }
 
     .lookbook-grid {
-      max-width: 1100px;
-      margin: 40px auto 0;
+      margin-top: 34px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
 
     .look-item {
-      background: #d4dfeb;
+      background: rgba(228, 238, 247, 0.95);
       border-radius: 20px;
-      height: 160px;
+      height: 150px;
       padding: 14px;
       font-size: 14px;
       color: #333;
@@ -473,6 +518,7 @@
       position: relative;
       overflow: hidden;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-align: center;
     }
 
     .look-item:hover {
@@ -494,12 +540,18 @@
       margin-bottom: 4px;
     }
 
+    /* Philosophy section: 柔蓝背景 + 居中 */
+    #philosophy {
+      background: #F2F6FC;
+    }
+
     .philosophy-text {
       max-width: 860px;
       margin: 0 auto;
       font-size: 16px;
       line-height: 1.9;
       color: #555;
+      text-align: center;
     }
 
     .philosophy-text em {
@@ -508,6 +560,11 @@
       -webkit-background-clip: text;
       color: transparent;
       font-weight: 500;
+    }
+
+    /* Contact section */
+    #contact {
+      background: var(--cloud-soft);
     }
 
     .contact-row {
@@ -544,19 +601,6 @@
       .nav-inner {
         flex-direction: column;
         align-items: flex-start;
-      }
-
-      .hero {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .hero-title {
-        font-size: 40px;
-      }
-
-      .grid-2 {
-        grid-template-columns: 1fr;
       }
 
       .card-row {
@@ -598,202 +642,225 @@
     </div>
   </header>
 
-  <!-- HERO / Homepage -->
+  <!-- HERO / Homepage：大面积蓝 -->
   <section class="section" id="home">
-    <div class="hero">
-      <div>
-        <div class="hero-pill">
-          <div class="pill-dot"></div>
-          <span>Digital sewing pattern studio</span>
-        </div>
-        <h1 class="hero-title">Soft patterns,<br>main-character energy.</h1>
-        <p class="hero-subtitle">
-          Cloudy, airy digital sewing patterns for people who live somewhere between
-          <span>coffee, fabric and good playlists</span>.
-        </p>
-        <p class="hero-meta">
-          Instant PDF delivery by email · Optional <strong>$2</strong> fit tweak ·
-          <strong>$7/month</strong> club with 2 fresh patterns every month.
-        </p>
-        <div class="btn-row">
-          <a href="#shop" class="btn btn-primary">
-            <span class="btn-icon">☁︎</span>
-            <span>Browse patterns</span>
-          </a>
+    <div class="section-inner">
+      <div class="hero">
+        <div>
+          <div class="hero-pill">
+            <div class="pill-dot"></div>
+            <span>Digital sewing pattern studio</span>
+          </div>
+          <h1 class="hero-title">Soft patterns,<br>main-character energy.</h1>
+          <p class="hero-subtitle">
+            Cloudy, airy digital sewing patterns for people who live somewhere between
+            <span>coffee, fabric and good playlists</span>.
+          </p>
+          <p class="hero-meta">
+            Instant PDF delivery by email · Optional <strong>$2</strong> fit tweak ·
+            <strong>$7/month</strong> club with 2 fresh patterns every month.
+          </p>
+          <div class="btn-row">
+            <a href="#shop" class="btn btn-primary">
+              <span class="btn-icon">☁︎</span>
+              <span>Browse patterns</span>
+            </a>
 
-          <!-- TODO: replace with real Stripe subscription link -->
-          <a href="https://buy.stripe.com/your-subscription-link"
-             class="btn btn-secondary" target="_blank" rel="noreferrer">
-            <span class="btn-icon">✶</span>
-            <span>Start subscription</span>
-          </a>
+            <!-- TODO: 换成你的 Stripe 订阅链接 -->
+            <a href="https://buy.stripe.com/your-subscription-link"
+               class="btn btn-secondary" target="_blank" rel="noreferrer">
+              <span class="btn-icon">✶</span>
+              <span>Start subscription</span>
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="hero-image">
-        <div class="hero-doodle">slow mornings · soft seams</div>
-        Patterns that feel like cloud drinks,  
-        linen sheets, and your favorite playlist on repeat.
-        <div class="hero-cloud"></div>
+
+        <div class="hero-visual-wrap">
+          <div class="hero-image">
+            <div class="hero-doodle">slow mornings · soft seams</div>
+            Patterns that feel like cloud drinks,  
+            linen sheets, and your favorite playlist on repeat.
+            <div class="hero-cloud"></div>
+          </div>
+          <div class="hero-caption">
+            Blue as the main character · calm but a little bit playful.
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- BRAND STORY / About -->
-  <section class="section section-cloud" id="about">
-    <div class="grid-2">
-      <div style="background:linear-gradient(135deg,var(--cloud-main),var(--cloud-peach));height:300px;border-radius:24px;display:flex;align-items:center;justify-content:center;color:#fff;padding:20px;text-align:center;">
-        Future studio photo here —  
-        paper patterns, thread, a cup of something warm,  
-        and just enough chaos to feel creative.
-      </div>
-      <div>
-        <h2 class="section-title">Designed for soft, intentional making.</h2>
-        <p>
-          Blueberry Patterns is a digital sewing pattern studio. Every design is a PDF you receive by email
-          right after checkout, ready to print and tape together at your own pace.
-        </p>
-        <p>
-          If your body doesn’t match “standard” size charts (honestly, whose does?), you can request a
-          light custom fit adjustment for <strong>$2 per edit</strong> — think length tweaks or simple size shifts.
-        </p>
-        <p>
-          For regular sewists, there’s a gentle <strong>$7/month membership</strong>:
-          <strong>2 new patterns every month</strong>, all in the same cloud-blue, wearable, slightly-romantic vibe.
-        </p>
+  <section class="section" id="about">
+    <div class="section-inner">
+      <h2 class="section-title">Designed for soft, intentional making.</h2>
+      <p class="subtext-center">
+        Blueberry Patterns is a digital sewing pattern studio. Clean lines, cloud blues,  
+        and silhouettes that feel like the quiet part of your day.
+      </p>
+
+      <div class="about-columns">
+        <div class="about-image">
+          Future studio photo: pattern paper, thread, a soft blue garment in progress,
+          and a drink you definitely forgot to finish.
+        </div>
+        <div>
+          <p>
+            Every design is sold as a PDF. After checkout, your pattern arrives in your inbox,
+            ready to print at home or at a copy shop — no waiting for shipping.
+          </p>
+          <p>
+            If your body doesn’t match “standard” size charts (because whose does?),
+            you can request a light custom fit adjustment for <strong>$2 per edit</strong>.
+          </p>
+          <p>
+            For regular sewists, there’s a <strong>$7/month membership</strong>:
+            <strong>2 new patterns every month</strong>, all in a cloud-inspired palette,
+            made to live in your real, slightly dreamy life.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- SERVICES / Shop + Subscription + Adjustments -->
   <section class="section" id="shop">
-    <h2 class="section-title" style="text-align:center;">What Blueberry offers</h2>
-    <p class="subtext-center">
-      Clean and professional, but never stiff. Blueberry is for people who like their clothes soft,
-      their lines simple, and their sewing table just a little bit romantic.
-    </p>
+    <div class="section-inner">
+      <h2 class="section-title">What Blueberry offers</h2>
+      <p class="subtext-center">
+        Clean, playful and wearable. Blueberry is for people who like their clothes soft,
+        their colors calm, and their sewing table just a little bit romantic.
+      </p>
 
-    <div class="card-row">
-      <!-- Digital Patterns -->
-      <div class="card">
-        <div class="card-tag">Digital patterns</div>
-        <h3 class="card-title">PDF sewing patterns</h3>
-        <p>
-          Each design is sold as a digital PDF pattern. After checkout, your files land in your inbox —
-          print at home on A4 / US Letter, or at a copy shop when you’re ready.
-        </p>
-        <p class="card-footnote">
-          Instant email delivery · Cloud-inspired silhouettes that still make sense for real life.
-        </p>
+      <div class="card-row">
+        <!-- Digital Patterns -->
+        <div class="card">
+          <div class="card-tag">Digital patterns</div>
+          <h3 class="card-title">PDF sewing patterns</h3>
+          <p>
+            Each design is a digital PDF you receive by email right after checkout.
+            Print on A4 / US Letter, tape, cut, and sew at your own pace.
+          </p>
+          <p class="card-footnote">
+            Instant email delivery · Cloud-inspired silhouettes that still make sense for everyday wear.
+          </p>
 
-        <!-- TODO: replace href with real Stripe Payment Link for a single pattern -->
-        <a href="https://buy.stripe.com/your-single-pattern-link"
-           class="btn btn-primary" target="_blank" rel="noreferrer">
-          <span class="btn-icon">🧵</span>
-          <span>Buy a pattern with card</span>
-        </a>
-      </div>
+          <!-- TODO: 换成单个图纸的 Payment Link -->
+          <a href="https://buy.stripe.com/your-single-pattern-link"
+             class="btn btn-primary" target="_blank" rel="noreferrer">
+            <span class="btn-icon">🧵</span>
+            <span>Buy a pattern with card</span>
+          </a>
+        </div>
 
-      <!-- Body Adjustment -->
-      <div class="card">
-        <div class="card-tag">Fit adjustment</div>
-        <h3 class="card-title">$2 fit tweak</h3>
-        <p>
-          Need the hem a little longer, or the waist a little softer?
-          Send your key measurements and we nudge the digital pattern for just
-          <strong>$2 per request</strong>.
-        </p>
-        <p class="card-footnote">
-          Bust / waist / hip / length · light edits only · all handled over email.
-        </p>
-        <!-- mailto placeholder -->
-        <a href="mailto:hello@blueberrypatterns.com?subject=Fit%20Adjustment%20Request"
-           class="btn btn-secondary">
-          <span class="btn-icon">✂︎</span>
-          <span>Request an adjustment</span>
-        </a>
-      </div>
+        <!-- Body Adjustment -->
+        <div class="card">
+          <div class="card-tag">Fit adjustment</div>
+          <h3 class="card-title">$2 fit tweak</h3>
+          <p>
+            Need the hem longer, the waist softer, or a small sizing shift?
+            Send your key measurements and get a pattern tweak for just
+            <strong>$2 per request</strong>.
+          </p>
+          <p class="card-footnote">
+            Bust / waist / hip / length · light edits only · all handled over email.
+          </p>
+          <a href="mailto:hello@blueberrypatterns.com?subject=Fit%20Adjustment%20Request"
+             class="btn btn-secondary">
+            <span class="btn-icon">✂︎</span>
+            <span>Request an adjustment</span>
+          </a>
+        </div>
 
-      <!-- Subscription -->
-      <div class="card" id="subscription">
-        <div class="card-tag">Monthly membership</div>
-        <h3 class="card-title">$7/month pattern club</h3>
-        <p>
-          Two new Blueberry patterns every month, dropped straight into your inbox.
-          Think: soft skirts, throw-on tops, lounge pieces that look cute outside too.
-        </p>
-        <p class="card-footnote">
-          Cancel anytime · Perfect if sewing is part of your weekly self-care routine.
-        </p>
-        <!-- TODO: replace with real Stripe subscription link -->
-        <a href="https://buy.stripe.com/your-subscription-link"
-           class="btn btn-primary" target="_blank" rel="noreferrer">
-          <span class="btn-icon">☁︎</span>
-          <span>Join with Visa / card</span>
-        </a>
+        <!-- Subscription -->
+        <div class="card" id="subscription">
+          <div class="card-tag">Monthly membership</div>
+          <h3 class="card-title">$7/month pattern club</h3>
+          <p>
+            Two new Blueberry patterns every month, dropped straight into your inbox.
+            Think: soft skirts, throw-on tops, lounge pieces that still look good outside.
+          </p>
+          <p class="card-footnote">
+            Cancel anytime · Perfect if sewing is part of your weekly self-care routine.
+          </p>
+          <!-- TODO: 换成你的订阅 Stripe 链接 -->
+          <a href="https://buy.stripe.com/your-subscription-link"
+             class="btn btn-primary" target="_blank" rel="noreferrer">
+            <span class="btn-icon">☁︎</span>
+            <span>Join with Visa / card</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- LOOKBOOK / Portfolio -->
   <section class="section" id="lookbook">
-    <h2 class="section-title" style="text-align:center;">Lookbook · Cloud closet</h2>
-    <p class="subtext-center">
-      A peek into what Blueberry looks like in real life: finished garments, tiny seams,
-      and the kind of outfits you reach for again and again.
-    </p>
+    <div class="section-inner">
+      <h2 class="section-title">Lookbook · Cloud closet</h2>
+      <p class="subtext-center">
+        A peek into what Blueberry looks like in real life: finished garments, tiny seams,
+        and outfits that feel like your favorite playlist.
+      </p>
 
-    <div class="lookbook-grid">
-      <div class="look-item">
-        <div class="look-label">Cloud Lounge Set</div>
-        <div>Relaxed set in soft blue, photographed on a sleepy Sunday morning.</div>
-      </div>
-      <div class="look-item">
-        <div class="look-label">Blueberry Wrap Top</div>
-        <div>Wrap top tied over jeans, plus a detail shot of the neckline and topstitching.</div>
-      </div>
-      <div class="look-item">
-        <div class="look-label">Studio Table</div>
-        <div>Pattern pieces, a pen, some tape, and a drink you definitely forgot to finish.</div>
+      <div class="lookbook-grid">
+        <div class="look-item">
+          <div class="look-label">Cloud Lounge Set</div>
+          <div>Relaxed set in soft blue, photographed on a slow Sunday morning.</div>
+        </div>
+        <div class="look-item">
+          <div class="look-label">Blueberry Wrap Top</div>
+          <div>Wrap top tied over jeans, plus a close-up of neckline and topstitching.</div>
+        </div>
+        <div class="look-item">
+          <div class="look-label">Studio Table</div>
+          <div>Pattern pieces, tape, fabric and a drink you forgot about (again).</div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- BRAND PHILOSOPHY -->
-  <section class="section section-cloud" id="philosophy">
-    <h2 class="section-title" style="text-align:center;">Brand philosophy</h2>
-    <div class="philosophy-text">
-      <p>
-        Blueberry Patterns is built around <em>soft rituals</em>: slow mornings,
-        fabric on the table, the sound of your machine, and that tiny rush when a seam turns out clean.
-      </p>
-      <p>
-        The aesthetic mixes Erewhon-style freshness with a cloud palette — light blues, soft neutrals,
-        and a grounding hint of liver red. It’s calm and slightly luxurious, but never intimidating.
-      </p>
-      <p>
-        It’s for people who like making things with their hands, who care about how clothes feel
-        on the inside as much as how they look outside, and who secretly think sewing time
-        might be the best kind of therapy.
-      </p>
+  <section class="section" id="philosophy">
+    <div class="section-inner">
+      <h2 class="section-title">Brand philosophy</h2>
+      <div class="philosophy-text">
+        <p>
+          Blueberry Patterns is built around <em>soft rituals</em>:
+          slow mornings, fabric on the table, the sound of your machine,
+          and that tiny rush when a seam turns out clean.
+        </p>
+        <p>
+          The palette is mostly blue on purpose — cloud drinks, clear skies, quiet rooms.
+          It’s calm and slightly luxurious, but never intimidating.
+        </p>
+        <p>
+          It’s for people who like making things with their hands, who care about how clothes
+          feel on the inside as much as how they look outside, and who secretly think
+          sewing time might be the best kind of therapy.
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- CONTACT / SOCIALS -->
   <section class="section" id="contact">
-    <h2 class="section-title" style="text-align:center;">Contact · Socials</h2>
-    <p class="subtext-center">
-      Share your Blueberry makes, ask about patterns, or just say hi.
-      Update these with your real handles once everything is ready.
-    </p>
-    <div class="contact-row contact-links">
-      <p>
-        Instagram: <a href="#" target="_blank" rel="noreferrer">@your_instagram</a><br />
-        TikTok: <a href="#" target="_blank" rel="noreferrer">@your_tiktok</a><br />
-        Email: <a href="mailto:hello@blueberrypatterns.com">hello@blueberrypatterns.com</a>
+    <div class="section-inner">
+      <h2 class="section-title">Contact · Socials</h2>
+      <p class="subtext-center">
+        Share your Blueberry makes, ask about patterns, or just say hi.
+        Update these with your real handles once everything is ready.
       </p>
-      <p style="margin-top:12px;font-size:13px;color:#777;">
-        Replace these placeholders with your real links when you’re ready to go public.
-      </p>
+      <div class="contact-row contact-links">
+        <p>
+          Instagram: <a href="#" target="_blank" rel="noreferrer">@your_instagram</a><br />
+          TikTok: <a href="#" target="_blank" rel="noreferrer">@your_tiktok</a><br />
+          Email: <a href="mailto:hello@blueberrypatterns.com">hello@blueberrypatterns.com</a>
+        </p>
+        <p style="margin-top:12px;font-size:13px;color:#777;">
+          Replace these placeholders with your real links when you’re ready to go public.
+        </p>
+      </div>
     </div>
   </section>
 
