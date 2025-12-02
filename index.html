@@ -16,11 +16,70 @@
       --white: #ffffff;
     }
 
-    body {
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--bg-main);
       color: var(--text-main);
+    }
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(245, 247, 250, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+      padding: 14px 6vw;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-logo {
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-size: 20px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--liver-deep);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #555;
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: var(--liver-soft);
+      color: var(--liver-soft);
     }
 
     .section {
@@ -57,13 +116,24 @@
       line-height: 1.6;
     }
 
+    .btn-row {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
     .btn {
       padding: 12px 30px;
       border-radius: 999px;
       border: none;
-      font-size: 16px;
+      font-size: 15px;
       cursor: pointer;
       font-family: inherit;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
     }
 
     .btn-primary {
@@ -79,7 +149,10 @@
       background: var(--white);
       color: var(--liver-deep);
       border: 1px solid #ddd;
-      margin-left: 12px;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--liver-soft);
     }
 
     .hero-image {
@@ -114,9 +187,9 @@
       font-size: 40px;
       color: var(--liver-deep);
       margin-bottom: 20px;
+      text-align: left;
     }
 
-    .section-cloud p,
     .section p {
       font-size: 16px;
       line-height: 1.7;
@@ -230,6 +303,11 @@
     }
 
     @media (max-width: 900px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
       .hero {
         flex-direction: column;
         align-items: flex-start;
@@ -260,102 +338,143 @@
 
 <body>
 
-  <!-- HERO / Homepage 顶部 -->
+  <!-- NAVIGATION -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">Blueberry Patterns</div>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#shop">Shop</a>
+        <a href="#subscription">Subscription</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO / Homepage -->
   <section class="section" id="home">
     <div class="hero">
       <div>
         <h1 class="hero-title">Blueberry Patterns</h1>
         <p class="hero-subtitle">
-          Digital sewing patterns for a clean, cloud-like wardrobe.<br />
-          电子服装图纸 · 干净、空灵、带一点 Erewhon 的温柔贵气。
+          Digital sewing patterns for a clean, cloud-like wardrobe.
         </p>
         <p class="hero-meta">
-          即买即发邮件 · 可选 $2 身体调整 · $7/月订阅，每月 2 个新图纸。
+          Instant PDF download by email · Optional <strong>$2</strong> body-fit adjustment ·
+          <strong>$7/month</strong> membership with 2 new patterns every month.
         </p>
-        <div style="margin-top: 20px;">
-          <button class="btn btn-primary">Browse Patterns</button>
-          <button class="btn btn-secondary">Learn about Subscription</button>
+        <div class="btn-row">
+          <!-- TODO: replace #shop with your actual shop URL if needed -->
+          <a href="#shop" class="btn btn-primary">Browse patterns</a>
+
+          <!-- TODO: replace the href with your real Stripe payment link -->
+          <a href="https://buy.stripe.com/your-subscription-link" class="btn btn-secondary" target="_blank" rel="noreferrer">
+            Start subscription with card
+          </a>
         </div>
       </div>
       <div class="hero-image">
-        Cloud smoothie blue + liver tones.<br />
-        想像你的缝纫桌：纸样、线轴、柔和光线。
+        Cloud smoothie blue + liver tones.  
+        Think of a quiet sewing table, paper patterns, thread and soft light.
       </div>
     </div>
   </section>
 
-  <!-- BRAND STORY / About 简介 -->
+  <!-- BRAND STORY / About -->
   <section class="section section-cloud" id="about">
     <div class="grid-2">
       <div style="background:#AFC7DD;height:300px;border-radius:20px;display:flex;align-items:center;justify-content:center;color:#fff;padding:20px;text-align:center;">
-        这里以后可以换成你的工作室照片 / mood board：<br />
-        云蓝、木桌、纸样、线、缝纫机。
+        (Future studio image)  
+        A calm sewing desk with paper patterns, cloud blue fabrics and your machine.
       </div>
       <div>
         <h2 class="section-title">Designed for soft, intentional making.</h2>
         <p>
-          Blueberry Patterns 的主营业务是<span style="font-weight:600;">电子服装图纸</span>。
-          顾客结账后会直接收到邮件中的 PDF 文件，在家打印、裁剪即可开工。
+          Blueberry Patterns is a digital sewing pattern studio. Every pattern is sold as a PDF file.
+          After checkout, your pattern is sent directly to your email for you to print and sew at home.
         </p>
         <p>
-          如果需要根据自己的身体做调整（例如：身长、腰围、胸围等），你提供
-          <span style="font-weight:600;">$2/每次</span> 的身体调整服务——轻量但贴心。
+          If you need the pattern adjusted to your own body, you can request a light custom fit
+          service for <strong>$2 per adjustment</strong> — perfect for length tweaks or basic size tuning.
         </p>
         <p>
-          同时你还有一个 <span style="font-weight:600;">$7/月订阅</span>：
-          每月发布 <span style="font-weight:600;">2 个新图纸</span>，适合喜欢慢慢缝纫、
-          喜欢清洁审美的手工爱好者。
+          For regular sewists, there is a gentle <strong>$7/month subscription</strong>:
+          you receive <strong>2 new patterns every month</strong>, all in the same
+          cloud-inspired, soft and wearable aesthetic.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES / Shop / Subscription / Adjustment -->
-  <section class="section" id="services">
+  <!-- SERVICES / Shop + Subscription + Adjustments -->
+  <section class="section" id="shop">
     <h2 class="section-title" style="text-align:center;">What Blueberry offers</h2>
     <p class="subtext-center">
-      “专业又干净、艺术、温暖、有 Lifestyle 感” —— 面向喜欢缝纫、喜欢手工、
-      喜欢清洁审美的客人，也面向想见识你生活方式的粉丝。
+      Clean, professional and warm — designed for people who love sewing, handcraft,
+      and a lifestyle that feels calm but intentional.
     </p>
 
     <div class="card-row">
       <!-- Digital Patterns -->
       <div class="card">
-        <div class="card-tag">Digital Patterns</div>
-        <h3 class="card-title">电子服装图纸</h3>
+        <div class="card-tag">Digital patterns</div>
+        <h3 class="card-title">PDF sewing patterns</h3>
         <p>
-          所有款式以 PDF 电子图纸形式出售，结账后自动通过邮箱发送。
-          支持在家用 A4/Letter 打印，或拿去打印店出图。
+          All designs are sold as digital PDF patterns. After checkout, your files are sent by email.
+          You can print at home on A4 / US Letter, or at a copy shop.
         </p>
         <p class="card-footnote">
-          Instant email delivery · Clean, cloud-inspired silhouettes.
+          Instant email delivery · Cloud-inspired silhouettes.
         </p>
+
+        <!-- Example payment link for a single pattern -->
+        <!-- TODO: replace href with your Stripe Payment Link for a single pattern product -->
+        <a href="https://buy.stripe.com/your-single-pattern-link"
+           class="btn btn-primary" target="_blank" rel="noreferrer">
+          Buy a pattern with card
+        </a>
       </div>
 
       <!-- Body Adjustment -->
       <div class="card">
-        <div class="card-tag">Fit Adjustment</div>
-        <h3 class="card-title">$2 身体调整服务</h3>
+        <div class="card-tag">Fit adjustment</div>
+        <h3 class="card-title">$2 fit adjustment</h3>
         <p>
-          如果你需要图纸跟你的身体更加贴合，可以提供身高、三围等基本数据，
-          每次小调整只需 <strong>$2</strong>，让版型更合身、更好做。
+          Need the pattern closer to your own body measurements?
+          Send your key measurements and we adjust the digital pattern for just
+          <strong>$2 per request</strong>, so it works better for you.
         </p>
         <p class="card-footnote">
-          Bust / waist / hip / length tweaks · Done via email.
+          Bust / waist / hip / length adjustments · All via email.
         </p>
+        <!-- This can link to a Stripe Payment Link or a contact form -->
+        <!-- TODO: replace href with Stripe link or mailto: -->
+        <a href="mailto:hello@blueberrypatterns.com?subject=Fit%20Adjustment%20Request"
+           class="btn btn-secondary">
+          Request an adjustment
+        </a>
       </div>
 
       <!-- Subscription -->
       <div class="card" id="subscription">
-        <div class="card-tag">Monthly Subscription</div>
-        <h3 class="card-title">$7/月订阅 · 每月 2 个新图纸</h3>
+        <div class="card-tag">Monthly membership</div>
+        <h3 class="card-title">$7/month subscription</h3>
         <p>
-          对于每个月都在做衣服的 sewist，可以订阅 Blueberry Patterns：
-          每月收到两款新的电子图纸，延续相同 Cloud aesthetic & Erewhon vibe。
+          For sewists who like having fresh projects, the subscription delivers
+          two new digital patterns every month — gentle silhouettes, cloud palettes,
+          and pieces made to wear in real life.
         </p>
         <p class="card-footnote">
-          Cancel anytime · Perfect for regular home sewists.
+          Cancel anytime · Perfect for a calm sewing routine.
         </p>
+        <!-- TODO: replace href with your real Stripe subscription link -->
+        <a href="https://buy.stripe.com/your-subscription-link"
+           class="btn btn-primary" target="_blank" rel="noreferrer">
+          Subscribe with Visa / card
+        </a>
       </div>
     </div>
   </section>
@@ -364,60 +483,60 @@
   <section class="section" id="lookbook">
     <h2 class="section-title" style="text-align:center;">Lookbook · Portfolio</h2>
     <p class="subtext-center">
-      用来展示你用 Blueberry Patterns 做出来的成品、试穿照、细节特写，
-      也可以是你喜欢的生活方式照片，让客人感受到一种 cloud lifestyle。
+      This space is for finished garments, fit photos, details and lifestyle images —
+      to show what sewing with Blueberry Patterns actually feels like.
     </p>
 
     <div class="lookbook-grid">
       <div class="look-item">
         <div class="look-label">Cloud Lounge Set</div>
-        <div>柔软居家套装：云蓝上衣 + 干净剪裁裤子，可以放模特或自己穿搭照。</div>
+        <div>Soft lounge set in cloud blue tones, photographed in natural light.</div>
       </div>
       <div class="look-item">
         <div class="look-label">Blueberry Wrap Top</div>
-        <div>包裹上衣、腰侧系带细节，适合放领口与缝线的近景照片。</div>
+        <div>Wrap top details, neckline and stitching shown up close.</div>
       </div>
       <div class="look-item">
         <div class="look-label">Studio Table</div>
-        <div>木桌、纸样、布料、咖啡杯，给人 Erewhon + sewing studio 的氛围感。</div>
+        <div>Wooden table, pattern paper, fabric and a cup of something calm.</div>
       </div>
     </div>
   </section>
 
-  <!-- Brand Philosophy / 核心理念 -->
+  <!-- BRAND PHILOSOPHY -->
   <section class="section section-cloud" id="philosophy">
-    <h2 class="section-title" style="text-align:center;">Brand Philosophy · 品牌核心理念</h2>
+    <h2 class="section-title" style="text-align:center;">Brand philosophy</h2>
     <div class="philosophy-text">
       <p>
-        Blueberry Patterns 想呈现的是一种 <strong>“干净、空灵、温暖但专业”</strong> 的氛围——
-        有一点 Erewhon 的健康和贵气，也有 Cloud aesthetic 的轻盈和空气感。
+        Blueberry Patterns is built around soft, everyday rituals:
+        slow mornings, a clean table, and the quiet satisfaction of making your own clothes.
       </p>
       <p>
-        你希望客人感觉：拿到图纸，不只是买到一个版型，而是进入一种生活方式：
-        在安静的早晨、柔和的光线下，一点一点裁布、缝线，做一件只属于自己的衣服。
+        The aesthetic mixes Erewhon-like freshness with a cloud-inspired color palette —
+        calm, airy, and slightly luxurious, but always approachable.
       </p>
       <p>
-        目标客群是喜欢缝纫、喜欢手工、喜欢家里干干净净的女生/男生，
-        以及对你个人生活方式好奇、想跟着你一起慢慢做东西的粉丝。
+        It’s made for people who enjoy sewing, handcraft and a gentle lifestyle:
+        not rushing, not chasing trends, just creating pieces that feel good to wear.
       </p>
     </div>
   </section>
 
-  <!-- Contact / Socials -->
+  <!-- CONTACT / SOCIALS -->
   <section class="section" id="contact">
     <h2 class="section-title" style="text-align:center;">Contact · Socials</h2>
     <p class="subtext-center">
-      这里可以简单放你的社交媒体和联系方式，让喜欢你图纸和生活方式的人可以找到你。
-      例如：Instagram、TikTok、小红书、Email 等。
+      Share your sewing, ask questions, or reach out for collaborations.
+      Update these with your real handles once everything is ready.
     </p>
     <div class="contact-row">
       <p>
-        Instagram：@your_instagram<br />
-        TikTok：@your_tiktok<br />
-        Email：hello@blueberrypatterns.com
+        Instagram: @your_instagram<br />
+        TikTok: @your_tiktok<br />
+        Email: hello@blueberrypatterns.com
       </p>
       <p style="margin-top:12px;font-size:13px;color:#777;">
-        （以上先写占位，等你有正式账号再改成真实链接就好。）
+        Replace these placeholders with your real social links when you’re ready.
       </p>
     </div>
   </section>
