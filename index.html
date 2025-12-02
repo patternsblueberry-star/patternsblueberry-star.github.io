@@ -724,75 +724,42 @@
   </section>
 
   <!-- SERVICES / Shop + Subscription + Adjustments -->
-  <section class="section" id="shop">
-    <div class="section-inner">
-      <h2 class="section-title">What Blueberry offers</h2>
-      <p class="subtext-center">
-        Clean, playful and wearable. Blueberry is for people who like their clothes soft,
-        their colors calm, and their sewing table just a little bit romantic.
-      </p>
+<section id="shop">
+  <h2 class="section-title">Shop</h2>
 
-      <div class="card-row">
-        <!-- Digital Patterns -->
-        <div class="card">
-          <div class="card-tag">Digital patterns</div>
-          <h3 class="card-title">PDF sewing patterns</h3>
-          <p>
-            Each design is a digital PDF you receive by email right after checkout.
-            Print on A4 / US Letter, tape, cut, and sew at your own pace.
-          </p>
-          <p class="card-footnote">
-            Instant email delivery · Cloud-inspired silhouettes that still make sense for everyday wear.
-          </p>
+  <div class="shop-layout">
+    <!-- 左边分类栏 -->
+    <aside class="shop-sidebar">
+      <ul class="shop-filters">
+        <li class="shop-filter active">All</li>
+        <li class="shop-filter">Knitting Patterns</li>
+        <li class="shop-filter">Subscription</li>
+        <!-- 你要的话还能加 Accessories -->
+      </ul>
+    </aside>
 
-          <!-- TODO: 换成单个图纸的 Payment Link -->
-          <a href="https://buy.stripe.com/your-single-pattern-link"
-             class="btn btn-primary" target="_blank" rel="noreferrer">
-            <span class="btn-icon">🧵</span>
-            <span>Buy a pattern with card</span>
-          </a>
-        </div>
+    <!-- 右边商品网格：把你原来放商品卡片的那一堆 div 都放到这里 -->
+    <div class="shop-grid">
+      <!-- 这里放你原本所有 pattern 卡片 -->
 
-        <!-- Body Adjustment -->
-        <div class="card">
-          <div class="card-tag">Fit adjustment</div>
-          <h3 class="card-title">$2 fit tweak</h3>
-          <p>
-            Need the hem longer, the waist softer, or a small sizing shift?
-            Send your key measurements and get a pattern tweak for just
-            <strong>$2 per request</strong>.
+      <!-- 再把 Subscription 做成一张“商品卡片”插到这里 -->
+      <div class="product-card subscription-card">
+        <img src="images/subscription.jpg" alt="Monthly subscription" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">Monthly Pattern Subscription</h3>
+          <p class="product-price">$14.95 / month</p>
+          <p class="product-subtext">
+            每月一份新 Blueberry 图纸 + 小教程更新
           </p>
-          <p class="card-footnote">
-            Bust / waist / hip / length · light edits only · all handled over email.
-          </p>
-          <a href="mailto:hello@blueberrypatterns.com?subject=Fit%20Adjustment%20Request"
-             class="btn btn-secondary">
-            <span class="btn-icon">✂︎</span>
-            <span>Request an adjustment</span>
-          </a>
-        </div>
-
-        <!-- Subscription -->
-        <div class="card" id="subscription">
-          <div class="card-tag">Monthly membership</div>
-          <h3 class="card-title">$7/month pattern club</h3>
-          <p>
-            Two new Blueberry patterns every month, dropped straight into your inbox.
-            Think: soft skirts, throw-on tops, lounge pieces that still look good outside.
-          </p>
-          <p class="card-footnote">
-            Cancel anytime · Perfect if sewing is part of your weekly self-care routine.
-          </p>
-          <!-- TODO: 换成你的订阅 Stripe 链接 -->
-          <a href="https://buy.stripe.com/your-subscription-link"
-             class="btn btn-primary" target="_blank" rel="noreferrer">
-            <span class="btn-icon">☁︎</span>
-            <span>Join with Visa / card</span>
+          <a href="#subscription-link-or-stripe-url" class="product-button">
+            Subscribe
           </a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- LOOKBOOK / Portfolio -->
   <section class="section" id="lookbook">
