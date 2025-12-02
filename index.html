@@ -156,14 +156,14 @@
       padding: 110px 6vw;
     }
 
-    /* 让每个 section 里面的说明文字居中 */
+    /* 所有 section 文字容器：标题和描述居中 */
     .section-inner {
       max-width: 1100px;
       margin: 0 auto;
       text-align: center;
     }
 
-    /* HERO 全蓝背景，大面积使用蓝色 */
+    /* HERO */
     #home {
       background: radial-gradient(circle at top, #C4D5EA 0%, var(--cloud-main) 45%, #91A9CD 100%);
       color: #fff;
@@ -393,7 +393,7 @@
       color: #555;
     }
 
-    /* About section:浅蓝背景+居中 */
+    /* About section */
     #about {
       background: var(--cloud-soft);
     }
@@ -419,7 +419,7 @@
       font-size:15px;
     }
 
-    /* Shop section: 大面积蓝色块 + 卡片浅色 */
+    /* SHOP：左侧分类 + 右侧大图网格，带 Subscription 卡片 */
     #shop {
       background: linear-gradient(180deg, var(--cloud-main) 0%, var(--cloud-soft) 60%);
     }
@@ -429,61 +429,105 @@
       color: #1F2733;
     }
 
-    .card-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 26px;
+    .shop-layout {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
       margin-top: 26px;
     }
 
-    .card {
+    .shop-sidebar {
+      flex: 0 0 180px;
+      font-size: 0.95rem;
+      text-align: left;
+    }
+
+    .shop-filters {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .shop-filter {
+      cursor: pointer;
+      padding: 0.35rem 0;
+      color: #666;
+      transition: color 0.15s ease, transform 0.15s ease;
+    }
+
+    .shop-filter.active {
+      font-weight: 600;
+      color: #1d4ed8;
+      transform: translateX(4px);
+    }
+
+    .shop-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .product-card {
       background: rgba(255,255,255,0.96);
-      padding: 26px 24px 24px;
       border-radius: 24px;
       border: 1px solid rgba(255,255,255,0.7);
-      position: relative;
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.08);
       overflow: hidden;
-      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 1.2rem;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 1rem 1.2rem 0;
       text-align: center;
     }
 
-    .card::after {
-      content: "✂︎";
-      position: absolute;
-      right: 14px;
-      top: 10px;
-      font-size: 18px;
-      color: rgba(175,199,221,0.25);
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.10);
-      border-color: rgba(255,255,255,0.9);
-    }
-
-    .card-title {
+    .product-title {
       font-family: "Playfair Display", "Times New Roman", serif;
-      font-size: 22px;
-      color: var(--liver-deep);
-      margin-bottom: 10px;
+      font-size: 20px;
+      margin: 0 0 0.3rem;
+      color: #1d4ed8;
     }
 
-    .card-tag {
-      font-size: 11px;
+    .product-price {
+      font-size: 0.95rem;
+      margin: 0 0 0.6rem;
+      font-weight: 600;
+      color: #1e3a8a;
+    }
+
+    .product-subtext {
+      font-size: 0.8rem;
+      margin: 0 0 0.8rem;
+      color: #6b7280;
+    }
+
+    .product-button {
+      display: inline-block;
+      width: 100%;
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      border: none;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #777;
-      margin-bottom: 6px;
+      text-decoration: none;
+      background: #1d4ed8;
+      color: #fff;
+      cursor: pointer;
     }
 
-    .card-footnote {
-      font-size: 13px;
-      color: #777;
-      margin-top: 8px;
-    }
-
-    /* Lookbook section: 再来一块蓝色 */
+    /* Lookbook section */
     #lookbook {
       background: var(--cloud-main);
       color: #1F2733;
@@ -540,7 +584,7 @@
       margin-bottom: 4px;
     }
 
-    /* Philosophy section: 柔蓝背景 + 居中 */
+    /* Philosophy section */
     #philosophy {
       background: #F2F6FC;
     }
@@ -603,16 +647,32 @@
         align-items: flex-start;
       }
 
-      .card-row {
-        grid-template-columns: 1fr;
-      }
-
       .lookbook-grid {
         grid-template-columns: 1fr;
       }
 
       .hero-image {
         width: 100%;
+      }
+
+      .shop-layout {
+        flex-direction: column;
+      }
+
+      .shop-sidebar {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .shop-filters {
+        display: flex;
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .product-image {
+        height: 220px;
       }
     }
   </style>
@@ -642,7 +702,7 @@
     </div>
   </header>
 
-  <!-- HERO / Homepage：大面积蓝 -->
+  <!-- HERO -->
   <section class="section" id="home">
     <div class="section-inner">
       <div class="hero">
@@ -666,7 +726,6 @@
               <span>Browse patterns</span>
             </a>
 
-            <!-- TODO: 换成你的 Stripe 订阅链接 -->
             <a href="https://buy.stripe.com/your-subscription-link"
                class="btn btn-secondary" target="_blank" rel="noreferrer">
               <span class="btn-icon">✶</span>
@@ -678,7 +737,7 @@
         <div class="hero-visual-wrap">
           <div class="hero-image">
             <div class="hero-doodle">slow mornings · soft seams</div>
-            Patterns that feel like cloud drinks,  
+            Patterns that feel like cloud drinks,
             linen sheets, and your favorite playlist on repeat.
             <div class="hero-cloud"></div>
           </div>
@@ -690,12 +749,12 @@
     </div>
   </section>
 
-  <!-- BRAND STORY / About -->
+  <!-- ABOUT -->
   <section class="section" id="about">
     <div class="section-inner">
       <h2 class="section-title">Designed for soft, intentional making.</h2>
       <p class="subtext-center">
-        Blueberry Patterns is a digital sewing pattern studio. Clean lines, cloud blues,  
+        Blueberry Patterns is a digital sewing pattern studio. Clean lines, cloud blues,
         and silhouettes that feel like the quiet part of your day.
       </p>
 
@@ -723,86 +782,87 @@
     </div>
   </section>
 
-  <!-- SERVICES / Shop + Subscription + Adjustments -->
-<section id="shop">
-  <h2 class="section-title">Shop</h2>
+  <!-- SHOP -->
+  <section class="section" id="shop">
+    <div class="section-inner">
+      <h2 class="section-title">Shop</h2>
+      <p class="subtext-center">
+        Cloud-blue PDF patterns and a monthly subscription, delivered straight to your inbox.
+      </p>
 
-  <div class="shop-layout">
-    <!-- 左侧分类栏 -->
-    <aside class="shop-sidebar">
-      <ul class="shop-filters">
-        <li class="shop-filter active">All</li>
-        <li class="shop-filter">Knitting Patterns</li>
-        <li class="shop-filter">Subscription</li>
-      </ul>
-    </aside>
+      <div class="shop-layout">
+        <!-- 左侧分类 -->
+        <aside class="shop-sidebar">
+          <ul class="shop-filters">
+            <li class="shop-filter active">All</li>
+            <li class="shop-filter">Patterns</li>
+            <li class="shop-filter">Subscription</li>
+          </ul>
+        </aside>
 
-    <!-- 右侧商品网格 -->
-    <div class="shop-grid">
-      <!-- 下面这些是示例卡片，把内容换成你自己的 -->
+        <!-- 右侧商品网格 -->
+        <div class="shop-grid">
+          <!-- Pattern 1 -->
+          <div class="product-card">
+            <img src="images/pattern1.jpg" alt="Cloud Skirt pattern" class="product-image" />
+            <div class="product-info">
+              <h3 class="product-title">Cloud Skirt – PDF Pattern</h3>
+              <p class="product-price">$7.95</p>
+              <a href="#" class="product-button">Add to Cart</a>
+            </div>
+          </div>
 
-      <!-- Pattern 1 -->
-      <div class="product-card">
-        <img src="images/pattern1.jpg" alt="Pattern 1" class="product-image">
-        <div class="product-info">
-          <h3 class="product-title">Cloud Skirt – PDF Pattern</h3>
-          <p class="product-price">$7.95</p>
-          <a href="#" class="product-button">Add to Cart</a>
+          <!-- Pattern 2 -->
+          <div class="product-card">
+            <img src="images/pattern2.jpg" alt="Liver Sweater pattern" class="product-image" />
+            <div class="product-info">
+              <h3 class="product-title">Liver Sweater – PDF Pattern</h3>
+              <p class="product-price">$7.95</p>
+              <a href="#" class="product-button">Add to Cart</a>
+            </div>
+          </div>
+
+          <!-- Pattern 3 -->
+          <div class="product-card">
+            <img src="images/pattern3.jpg" alt="Blueberry Top pattern" class="product-image" />
+            <div class="product-info">
+              <h3 class="product-title">Blueberry Top – PDF Pattern</h3>
+              <p class="product-price">$7.95</p>
+              <a href="#" class="product-button">Add to Cart</a>
+            </div>
+          </div>
+
+          <!-- Pattern 4 -->
+          <div class="product-card">
+            <img src="images/pattern4.jpg" alt="Matcha Cardigan pattern" class="product-image" />
+            <div class="product-info">
+              <h3 class="product-title">Matcha Cardigan – PDF Pattern</h3>
+              <p class="product-price">$7.95</p>
+              <a href="#" class="product-button">Add to Cart</a>
+            </div>
+          </div>
+
+          <!-- Subscription 卡片 -->
+          <div class="product-card" id="subscription">
+            <img src="images/subscription.jpg" alt="Monthly subscription" class="product-image" />
+            <div class="product-info">
+              <h3 class="product-title">Monthly Pattern Subscription</h3>
+              <p class="product-price">$14.95 / month</p>
+              <p class="product-subtext">
+                1–2 fresh Blueberry patterns every month + tiny sewing notes and variations.
+              </p>
+              <a href="https://你的-stripe-或-visa-链接" class="product-button">
+                Subscribe
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
-
-      <!-- Pattern 2 -->
-      <div class="product-card">
-        <img src="images/pattern2.jpg" alt="Pattern 2" class="product-image">
-        <div class="product-info">
-          <h3 class="product-title">Liver Sweater – PDF Pattern</h3>
-          <p class="product-price">$7.95</p>
-          <a href="#" class="product-button">Add to Cart</a>
-        </div>
-      </div>
-
-      <!-- Pattern 3 -->
-      <div class="product-card">
-        <img src="images/pattern3.jpg" alt="Pattern 3" class="product-image">
-        <div class="product-info">
-          <h3 class="product-title">Blueberry Top – PDF Pattern</h3>
-          <p class="product-price">$7.95</p>
-          <a href="#" class="product-button">Add to Cart</a>
-        </div>
-      </div>
-
-      <!-- Pattern 4 -->
-      <div class="product-card">
-        <img src="images/pattern4.jpg" alt="Pattern 4" class="product-image">
-        <div class="product-info">
-          <h3 class="product-title">Matcha Cardigan – PDF Pattern</h3>
-          <p class="product-price">$7.95</p>
-          <a href="#" class="product-button">Add to Cart</a>
-        </div>
-      </div>
-
-      <!-- Subscription 卡片：放在同一网格里 -->
-      <div class="product-card subscription-card">
-        <img src="images/subscription.jpg" alt="Monthly subscription" class="product-image">
-        <div class="product-info">
-          <h3 class="product-title">Monthly Pattern Subscription</h3>
-          <p class="product-price">$14.95 / month</p>
-          <p class="product-subtext">
-            每月一份全新 Blueberry 图纸 + 小教程和变体。
-          </p>
-          <a href="https://你的-stripe-或-visa-链接" class="product-button">
-            Subscribe
-          </a>
-        </div>
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-
-
-  <!-- LOOKBOOK / Portfolio -->
+  <!-- LOOKBOOK -->
   <section class="section" id="lookbook">
     <div class="section-inner">
       <h2 class="section-title">Lookbook · Cloud closet</h2>
@@ -828,7 +888,7 @@
     </div>
   </section>
 
-  <!-- BRAND PHILOSOPHY -->
+  <!-- PHILOSOPHY -->
   <section class="section" id="philosophy">
     <div class="section-inner">
       <h2 class="section-title">Brand philosophy</h2>
@@ -851,7 +911,7 @@
     </div>
   </section>
 
-   <!-- CONTACT / SOCIALS -->
+  <!-- CONTACT -->
   <section class="section" id="contact">
     <div class="section-inner">
       <h2 class="section-title">Contact · Socials</h2>
@@ -860,18 +920,28 @@
       </p>
       <div class="contact-row contact-links">
         <p>
-          <strong>Instagram</strong>: <a href="https://www.instagram.com/blueberry_patterns" target="_blank" rel="noreferrer">@blueberry_patterns</a><br />
-          <strong>YouTube</strong>: <a href="https://youtube.com/@blueberrypatterns" target="_blank" rel="noreferrer">blueberrypatterns</a><br />
-          <strong>TikTok</strong>: <a href="https://www.tiktok.com/@blueberrypattern" target="_blank" rel="noreferrer">@blueberrypattern</a><br />
-          <strong>Email</strong>: <a href="mailto:patternsblueberry@gmail.com">patternsblueberry@gmail.com</a>
+          <strong>Instagram</strong>:
+          <a href="https://www.instagram.com/blueberry_patterns" target="_blank" rel="noreferrer">
+            @blueberry_patterns
+          </a><br />
+          <strong>YouTube</strong>:
+          <a href="https://youtube.com/@blueberrypatterns" target="_blank" rel="noreferrer">
+            blueberrypatterns
+          </a><br />
+          <strong>TikTok</strong>:
+          <a href="https://www.tiktok.com/@blueberrypattern" target="_blank" rel="noreferrer">
+            @blueberrypattern
+          </a><br />
+          <strong>Email</strong>:
+          <a href="mailto:patternsblueberry@gmail.com">patternsblueberry@gmail.com</a>
         </p>
         <p style="margin-top:12px;font-size:13px;color:#777;">
-          Follow on socials to see lifestyle shots, behind-the-scenes sewing, new pattern drops, and cozy cloud-blue moments.
+          Follow on socials to see lifestyle shots, behind-the-scenes sewing,
+          new pattern drops, and cozy cloud-blue moments.
         </p>
       </div>
     </div>
   </section>
-
 
   <footer>
     <span>© 2025 Blueberry Patterns · Digital Sewing Patterns · Blueberry Studio</span>
