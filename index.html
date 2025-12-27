@@ -5,19 +5,33 @@
   <title>Blueberry Patterns · Playful Cloud Sewing Studio</title>
 
   <style>
-    :root {
-      --cloud-main: #AFC7DD;
-      --cloud-accent: #A7C4DE;
-      --cloud-soft: #E4EEF7;
-      --cloud-peach: #F7DADA;
+  :root{
+  /* Blueberry core */
+  --bb-ink: #1F1B3A;        /* deep blueberry skin */
+  --bb-jam: #3A2A6A;        /* jam purple */
+  --bb-blue: #4F7BFF;       /* electric blueberry highlight (use sparingly) */
+  --bb-milk: #EEF2FF;       /* blueberry-milk background */
 
-      --liver-deep: #4E1F25;
-      --liver-soft: #8A4A49;
+  /* Organic + sustainable accents */
+  --leaf: #2F6B4F;          /* leafy green */
+  --leaf-soft: #DDEFE6;     /* soft leaf wash */
+  --berry-blush: #F4D7E6;   /* berry blossom blush */
 
-      --bg-main: #E4EEF7;
-      --text-main: #2A2A2A;
-      --white: #ffffff;
-    }
+  /* Base */
+  --bg-main: #EEF2FF;       /* make the overall page feel like blueberry milk */
+  --text-main: #1C1C22;
+  --white: #ffffff;
+
+  /* Backward compatibility (so your existing code still works) */
+  --cloud-main: var(--bb-milk);
+  --cloud-accent: #DDE6FF;
+  --cloud-soft: #F7F8FF;
+  --cloud-peach: var(--berry-blush);
+
+  --liver-deep: var(--bb-ink);
+  --liver-soft: var(--bb-jam);
+}
+
 
     * {
       box-sizing: border-box;
@@ -53,15 +67,16 @@
     }
 
     /* NAV */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(164, 193, 221, 0.96);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255,255,255,0.4);
-      padding: 12px 6vw;
-    }
+   .nav{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(31,27,58,0.86);   /* blueberry ink */
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+  padding: 12px 6vw;
+}
+
 
     .nav-inner {
       max-width: 1100px;
@@ -91,14 +106,8 @@
       color: var(--liver-deep);
     }
 
-    .nav-logo {
-      font-family: "Playfair Display", "Times New Roman", serif;
-      font-size: 20px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--white);
-      white-space: nowrap;
-    }
+    .nav-logo{ color: #FFFFFF; }
+
 
     .nav-tagline {
       font-size: 11px;
@@ -185,10 +194,14 @@
     }
 
     /* HERO */
-    #home {
-      background: radial-gradient(circle at top, #C4D5EA 0%, var(--cloud-main) 45%, #91A9CD 100%);
-      color: #fff;
-    }
+   #home{
+  background:
+    radial-gradient(circle at 20% 10%, rgba(79,123,255,0.35), transparent 40%),
+    radial-gradient(circle at 80% 0%, rgba(244,215,230,0.55), transparent 45%),
+    linear-gradient(180deg, #DCE6FF 0%, var(--bb-milk) 55%, #C9D6FF 100%);
+  color: var(--bb-ink);
+}
+
 
     .hero {
       display: flex;
@@ -801,15 +814,18 @@
             <div class="pill-dot"></div>
             <span>Digital sewing pattern studio</span>
           </div>
-          <h1 class="hero-title">Soft patterns,<br>main-character energy.</h1>
-          <p class="hero-subtitle">
-            Cloudy, airy digital sewing patterns for people who live somewhere between
-            <span>coffee, fabric and good playlists</span>.
-          </p>
-          <p class="hero-meta">
-            Instant PDF delivery by email·<strong>$7/month</strong> club with 2 fresh patterns every month.
-          
-            </p>
+         <h1 class="hero-title">Blueberry-made patterns,<br>fresh from the studio.</h1>
+
+<p class="hero-subtitle">
+  Organic-feeling silhouettes, fruit-forward color stories, and patterns made for
+  <span>slow sewing + real-life wear</span>.
+</p>
+
+<p class="hero-meta">
+  Instant PDF delivery by email · <strong>Organic-first</strong> design ethos ·
+  Members get <strong>2 new patterns/month</strong>.
+</p>
+
           <div class="btn-row">
             <a href="#shop" class="btn btn-primary">
               <span class="btn-icon">☁︎</span>
@@ -827,8 +843,9 @@
         <div class="hero-visual-wrap">
           <div class="hero-image">
             <div class="hero-doodle">slow mornings · soft seams</div>
-            Patterns that feel like cloud drinks,
-            linen sheets, and your favorite playlist on repeat.
+           Patterns that feel like a farmers market morning —
+berries, linen, sunlight, and a clean playlist on repeat.
+
             <div class="hero-cloud"></div>
           </div>
           <div class="hero-caption">
@@ -844,7 +861,7 @@
     <div class="section-inner">
       <h2 class="section-title">Designed for soft, intentional making.</h2>
       <p class="subtext-center">
-        Blueberry Patterns is a digital sewing pattern studio. Clean lines, cloud blues,
+        Blueberry Patterns is a digital sewing pattern studio. Clean lines 
         and silhouettes that feel like the quiet part of your day.
       </p>
 
@@ -877,8 +894,10 @@
     <div class="section-inner">
       <h2 class="section-title">Shop</h2>
       <p class="subtext-center">
-        Cloud-blue PDF patterns and a monthly subscription, delivered straight to your inbox.
-      </p>
+        Digital PDF patterns with an organic, blueberry-fresh aesthetic — plus a monthly membership
+  for new drops and sustainable sewing notes.
+</p>
+
 
       <div class="shop-inner">
         <!-- 左侧分类 -->
@@ -1028,22 +1047,22 @@
   <section class="section" id="philosophy">
     <div class="section-inner">
       <h2 class="section-title">Brand philosophy</h2>
-      <div class="philosophy-text">
-        <p>
-          Blueberry Patterns is built around <em>soft rituals</em>:
-          slow mornings, fabric on the table, the sound of your machine,
-          and that tiny rush when a seam turns out clean.
-        </p>
-        <p>
-          The palette is mostly blue on purpose — cloud drinks, clear skies, quiet rooms.
-          It’s calm and slightly luxurious, but never intimidating.
-        </p>
-        <p>
-          It’s for people who like making things with their hands, who care about how clothes
-          feel on the inside as much as how they look outside, and who secretly think
-          sewing time might be the best kind of therapy.
-        </p>
-      </div>
+<div class="philosophy-text">
+  <p>
+    Blueberry Patterns is an <em>organic-first</em> sewing studio:
+    calm shapes, wearable proportions, and details that feel clean and natural.
+  </p>
+  <p>
+    Sustainability here means less waste, more intention. We design patterns to be
+    re-worn, re-styled, and re-sewn — timeless silhouettes you’ll actually reach for.
+  </p>
+  <p>
+    We encourage mindful making: efficient cutting layouts, practical sizing, and
+    fabric suggestions that prioritize natural fibers when possible (linen, cotton, wool),
+    plus long-lasting construction over fast trends.
+  </p>
+</div>
+
     </div>
   </section>
 
