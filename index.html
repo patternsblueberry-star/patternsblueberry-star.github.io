@@ -5,6 +5,63 @@
   <title>Blueberry Patterns · Playful Cloud Sewing Studio</title>
 
   <style>
+    /* 🫐 Blueberry decorative system */
+#blueberry-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* Individual blueberry */
+.blueberry {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-image: url("images/blueberry.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.85;
+  filter: saturate(1.05) contrast(1.05);
+}
+
+/* Hand-drawn white lines */
+.blueberry::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  background-image: url("images/blueberry-lines.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+}
+
+/* Drop animation */
+@keyframes berryDrop {
+  0% {
+    transform: translateY(-60px) rotate(0deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) rotate(4deg);
+    opacity: 0.85;
+  }
+}
+
+/* Falling away */
+@keyframes berryFallOut {
+  0% {
+    transform: translateY(0);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(120vh);
+    opacity: 0;
+  }
+}
+
   :root{
   /* Blueberry core */
   --bb-ink: #1F1B3A;        /* deep blueberry skin */
@@ -44,6 +101,8 @@
     }
 
     body {
+      <!-- 🫐 Blueberry decorative layer -->
+<div id="blueberry-layer"></div>
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--bg-main);
       color: var(--text-main);
